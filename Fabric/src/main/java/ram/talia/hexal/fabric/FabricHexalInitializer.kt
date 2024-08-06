@@ -7,9 +7,18 @@ import at.petrak.hexcasting.common.lib.hex.HexIotaTypes
 import at.petrak.hexcasting.xplat.IXplatAbstractions
 import net.fabricmc.api.ModInitializer
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents
+import net.fabricmc.fabric.api.biome.v1.BiomeModifications
+import net.fabricmc.fabric.api.biome.v1.BiomeSelectors
+import net.fabricmc.fabric.impl.biome.modification.BuiltInRegistryKeys
 import net.minecraft.core.Registry
+import net.minecraft.core.RegistryAccess.RegistryEntry
+import net.minecraft.core.registries.Registries
 import net.minecraft.core.registries.BuiltInRegistries
+import net.minecraft.resources.ResourceKey
 import net.minecraft.resources.ResourceLocation
+import net.minecraft.world.level.biome.Biome
+import net.minecraft.world.level.levelgen.GenerationStep
+import net.minecraft.world.level.levelgen.placement.PlacedFeature
 import ram.talia.hexal.api.HexalAPI
 import ram.talia.hexal.api.gates.GateManager
 import ram.talia.hexal.api.gates.GateSavedData
@@ -54,6 +63,11 @@ object FabricHexalInitializer : ModInitializer {
         fabricOnlyRegistration()
 
         HexalFeatures.registerFeatures(bind(BuiltInRegistries.FEATURE))
+        BiomeModifications.addFeature(
+            BiomeSelectors.foundInOverworld(),
+            GenerationStep.Decoration.LOCAL_MODIFICATIONS,
+            ResourceKey.create(Registries.PLACED_FEATURE, HexalAPI.modLoc("amethyst_slipway_geode"))
+        )
 
         HexalSounds.registerSounds(bind(BuiltInRegistries.SOUND_EVENT))
         HexalBlocks.registerBlocks(bind(BuiltInRegistries.BLOCK))
