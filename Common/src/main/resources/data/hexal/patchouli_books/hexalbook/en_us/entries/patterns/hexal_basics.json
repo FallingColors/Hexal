@@ -2,7 +2,7 @@
   "name": "hexal.entry.hexal_basics",
   "category": "hexcasting:patterns",
   "icon": "minecraft:wooden_shovel",
-  "sortnum": 0.5,
+  "sortnum": 0,
   "advancement": "hexcasting:root",
   "read_by_default": true,
   "pages": [

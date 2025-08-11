@@ -2,7 +2,7 @@
   "name": "hexal.entry.hexal_maths",
   "category": "hexcasting:patterns",
   "icon": "minecraft:bamboo",
-  "sortnum": 3.5,
+  "sortnum": 3,
   "advancement": "hexcasting:root",
   "read_by_default": true,
   "pages": [

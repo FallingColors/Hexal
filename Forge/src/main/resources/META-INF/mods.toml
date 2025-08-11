@@ -2,13 +2,13 @@ modLoader = "kotlinforforge"
 loaderVersion = "[3,)"
 license = "MIT"
 
-issueTrackerURL = "https://github.com/Talia-12/Hexal/issues"
+issueTrackerURL = "https://github.com/FallingColors/Hexal/issues"
 
 [[mods]]
 modId = "hexal"
 version = "${file.jarVersion}"
 displayName = "Hexal"
-displayURL = "https://github.com/Talia-12/Hexal"
+displayURL = "https://github.com/FallingColors/Hexal"
 logoFile = "logo.png"
 credits = "petrak@ and other developers of Hex Casting for the mod that this is an addon for."
 authors = "Talia"

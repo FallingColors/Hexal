@@ -260,7 +260,7 @@
   "hexal.page.gates.2": "Drifting Gates are not bound at all, and can be used to send entities anywhere, however they lose efficiency as a result, and can only send entities to places that are in my ambit. When a gate is burnt in I will obtain on my stack a reference to that gate. With that gate reference, I can mark entities with that gate, and I can close the gate, which sends all entities marked with that gate to the gate's destination. Note that closing a gate doesn't use it up; once I have acquired a gate iota I can use it in perpetuity.",
   "hexal.page.gates.gate/make": "Adds a new gate iota to the stack. Any copy of this iota will point to the same numbered gate. Costs 32 $(l:items/amethyst)$(item)Charged Amethyst/$. If passed null, makes a Drifting Gate. If passed a vector, makes a Location Anchored Gate, If passed a vector and an entity, makes an Entity Anchored Gate.",
   "hexal.page.gates.gate/mark": "Consumes a gate iota and an entity. Marks that entity to be teleported the next time that gate is closed. Costs one twentieth of an $(l:items/amethyst)$(item)Amethyst Dust/$.",
-  "hexal.page.gates.gate/unmark": "Consumes a gate iota and an entity. Unmarks that entity so that if it was marked with $(l:hexal:patterns/spells/gates#hexal:gate/mark)$(action) Gate's Opening/$ it will no longer be teleported the next time that gate is closed.",
+  "hexal.page.gates.gate/unmark": "Consumes a gate iota and an entity. Unmarks that entity so that if it was marked with $(l:hexal:patterns/great_spells/gates#hexal:gate/mark)$(action) Gate's Opening/$ it will no longer be teleported the next time that gate is closed.",
   "hexal.page.gates.gate/mark/num/get": "Consumes a gate iota, returns how many entities are marked by that gate.",
   "hexal.page.gates.gate/mark/get": "Consumes a gate iota and an entity, returns whether that entity is marked by that gate.",
   "hexal.page.gates.gate/close": "Consumes a non-drifing gate iota, or a drifting gate iota and a position. Transports all the entities marked with the passed gate to the stored or given position, as relevant. Costs half an $(l:items/amethyst)$(item)Amethyst Shard/$, plus an $(l:items/amethyst)$(item)Amethyst Dust/$ per metre transported per entity, if the gate was drifting.",
@@ -303,7 +303,7 @@
   "hexal.entry.types": "Types",
   "hexal.page.types.type/iota": "Remove an iota from the stack, and adds the type of that iota to the stack.",
   "hexal.page.types.type/entity": "Remove an entity from the stack, and adds the type of the entity at that location to the stack.",
-  "hexal.page.types.type/block_item": "Remove a location, $(l:hexal:hexal.entry.motes)$(item)mote/$, item entity, or item frame from the stack, and adds the type of the block at that location, or type of that item, to the stack (e.g. Grass, Stone, Stick, etc.).",
+  "hexal.page.types.type/block_item": "Remove a location, $(l:hexal:patterns/spells/motes)$(item)mote/$, item entity, or item frame from the stack, and adds the type of the block at that location, or type of that item, to the stack (e.g. Grass, Stone, Stick, etc.).",
   "hexal.page.types.type/item_held": "Adds the type of the item in the caster's offhand to the stack if there is one present, or the type of the casting hand otherwise.",
 
   "hexal.page.types.get_entity/type": "Remove an entity type and a position from the stack, and returns an entity of that type at that position if one exists.",

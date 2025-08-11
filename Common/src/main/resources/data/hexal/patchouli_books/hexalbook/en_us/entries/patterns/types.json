@@ -2,7 +2,7 @@
   "name": "hexal.entry.types",
   "category": "hexcasting:patterns",
   "icon": "minecraft:lectern",
-  "sortnum": 5.5,
+  "sortnum": 5,
   "advancement": "hexcasting:root",
   "read_by_default": true,
   "pages": [

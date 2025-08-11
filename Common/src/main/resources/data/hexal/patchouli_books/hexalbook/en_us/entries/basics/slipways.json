@@ -3,7 +3,7 @@
   "icon": "minecraft:oak_door",
   "category": "hexcasting:basics",
   "priority": true,
-  "sortnum": 1.5,
+  "sortnum": 1,
   "advancement": "hexcasting:root",
   "pages": [
     {

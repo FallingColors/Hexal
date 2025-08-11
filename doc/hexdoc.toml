@@ -1,0 +1,65 @@
+modid = "hexal"
+book = "hexal:hexalbook"
+default_lang = "en_us"
+default_branch = "main"
+
+resource_dirs = [  # top takes priority
+    "resources",
+    "{_common.src}/main/resources",
+    "{_common.src}/generated/resources",
+    "{_fabric.src}/main/resources",
+    "{_fabric.src}/generated/resources",
+    "{_forge.src}/main/resources",
+    "{_forge.src}/generated/resources",
+    { modid="hexcasting" },
+    { modid="minecraft" },
+    { modid="hexdoc" },
+]
+export_dir = "src/hexdoc_hexal/_export/generated"
+
+[textures]
+missing = [
+    "hexal:mediafied_storage",
+    "minecraft:chest",
+]
+
+[textures.override]
+"hexal:relay" = { texture="hexdoc:textures/item/missing.png" }
+
+[template]
+icon = "../art/logo.png"
+include = [
+    "hexal",
+    "hexcasting",
+    "hexdoc",
+]
+
+[template.args]
+mod_name = "Hexal"
+author = "FallingColors"
+show_landing_text = false
+
+[extra.hexcasting]
+_pattern_regex = { "!Raw"='(?s-m:HexPattern\.fromAngles\("(?P<signature>[qweasd]+)", HexDir\.(?P<startdir>\w+)\),\s*modLoc\("(?P<name>[^"]+)"\),[^,]+?(?:makeConstantOp|Op\w+).*?(?P<is_per_world>\btrue)?\)(?:[^\)]+?\bval\b|(?:(?!\bval\b)(?:.))+$))' }
+
+[[extra.hexcasting.pattern_stubs]]
+path = "{^^^_common.package}/common/casting/Patterns.kt"
+regex = "{^_pattern_regex}"
+
+[[extra.hexcasting.pattern_stubs]]
+path = "{^^^_fabric.package}/FabricHexalInitializer.kt"
+regex = "{^_pattern_regex}"
+
+# platforms
+
+[_common]
+src = "../Common/src"
+package = "{src}/main/java/ram/talia/hexal"
+
+[_fabric]
+src = "../Fabric/src"
+package = "{src}/main/java/ram/talia/hexal/fabric"
+
+[_forge]
+src = "../Forge/src"
+package = "{src}/main/java/ram/talia/hexal/forge"
