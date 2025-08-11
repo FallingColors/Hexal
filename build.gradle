@@ -128,6 +128,8 @@ subprojects {
         maven {
             url = "https://jitpack.io"
         }
+
+        maven { url "https://maven.shedaniel.me/" }
     }
 
 
@@ -162,7 +164,13 @@ subprojects {
     }
 }
 
-allprojects { gradle.projectsEvaluated { tasks.withType(JavaCompile) { options.compilerArgs << "-Xmaxerrs" << "1000" } } }
+allprojects {
+    gradle.projectsEvaluated {
+        tasks.withType(JavaCompile) {
+            options.compilerArgs << "-Xmaxerrs" << "1000"
+        }
+    }
+}
 
 compileKotlin {
     kotlinOptions {
@@ -234,3 +242,31 @@ def getGitChangelog = { ->
 //        }
 //    }
 //}
+
+ext.getLatestChangelog = {
+    Collection<String> lines = rootProject.file("CHANGELOG.md").readLines()
+    String changelog = ""
+    Boolean atSegment = false
+    for (String line : lines) {
+        if (line.startsWith("## ")) {
+            if (atSegment) break // hit next segment
+            atSegment = true
+        }
+        if (atSegment) changelog += "$line\n"
+    }
+    return changelog.trim()
+}
+
+tasks.register("viewLatestChangelog") {
+    group "documentation"
+    description "Print the topmost single version section from the full CHANGELOG.md file."
+    doLast {
+        println(getLatestChangelog())
+    }
+}
+
+tasks.register("runAllDatagen") {
+    dependsOn ":Forge:runXplatDatagen"
+    dependsOn ":Forge:runForgeDatagen"
+    dependsOn ":Fabric:runDatagen"
+}

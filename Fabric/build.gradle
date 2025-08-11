@@ -43,7 +43,6 @@ repositories {
         dir 'libs'
     }
 
-    maven { url "https://maven.shedaniel.me/" }
     maven {
         name = "Ladysnake Mods"
         url = 'https://maven.ladysnake.org/releases'
@@ -86,10 +85,15 @@ dependencies {
     }
     modImplementation "$modID:moreiotas-fabric-$minecraftVersion:$moreIotasVersion"
     modImplementation "vazkii.patchouli:Patchouli:$minecraftVersion-$patchouliVersion-FABRIC-SNAPSHOT"
+    modImplementation "com.samsthenerd.inline:inline-fabric:$minecraftVersion-$inlineVersion"
 
     modImplementation "me.zeroeightsix:fiber:$fiberVersion"
     include "me.zeroeightsix:fiber:$fiberVersion"
 
+    // Hexal and MoreIotas depend on "cardinal-components", so we need this specific jar for the dev env to work
+    modImplementation("dev.onyxstudios.cardinal-components-api:cardinal-components-api:$cardinalComponentsVersion") {
+        transitive false // don't pull in all of the extra CC sub-jars that we don't need
+    }
     modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-base:$cardinalComponentsVersion"
 //    modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-util:$cardinalComponentsVersion"
     modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-entity:$cardinalComponentsVersion"
@@ -151,24 +155,25 @@ processResources {
     }
 }
 
-def loadProperties = { filename ->
-    def properties = new Properties()
-    rootProject.file(filename).withInputStream {
-        properties.load(it)
-    }
-    return properties
+tasks.register("ciArtifacts", Copy) {
+    from remapJar
+    into rootProject.file("build/ciArtifacts")
+}
+
+build {
+    dependsOn ciArtifacts
 }
 
 modrinth {
-    token = loadProperties("keys.properties").MODRINTH_TOKEN
+    token = System.env.MODRINTH_TOKEN
     projectId = "$modID" // This can be the project ID or the slug. Either will work!
     versionNumber = "$modVersion" // You don't need to set this manually. Will fail if Modrinth has this version already
     versionName = "$modVersion-fabric"
-    changelog = rootProject.file("changelog.md").text
+    changelog = getLatestChangelog()
 
     versionType = "release" // This is the default -- can also be `beta` or `alpha`
     uploadFile = remapJar // With Loom, this MUST be set to `remapJar` instead of `jar`!
-    gameVersions = ["1.19.2"] // Must be an array, even with only one version
+    gameVersions = ["1.20.1"] // Must be an array, even with only one version
     loaders = ["fabric"] // Must also be an array - no need to specify this if you're using Loom or ForgeGradle
     dependencies { // A special DSL for creating dependencies
         // scope.type
