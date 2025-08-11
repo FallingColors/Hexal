@@ -1,0 +1,5474 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <title>Hexal Book</title>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="description" content="The Hexal Book, all in one place." />
+      <meta name="author" content="FallingColors" />
+        <link rel="None" type="image/ico" href="favicon.ico" />
+        <link rel="icon" type="image/png" href="favicon-16x16.png" />
+        <link rel="icon" type="image/png" href="favicon-32x32.png" />
+        <link rel="icon" type="image/png" href="favicon-64x64.png" />
+        <link rel="icon" type="image/png" href="favicon-96x96.png" />
+        <link rel="icon" type="image/png" href="favicon-180x180.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-60x60.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-76x76.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-114x114.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-120x120.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-144x144.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-152x152.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-167x167.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-180x180.png" />
+        <link rel="None" type="image/png" href="mstile-70x70.png" />
+        <link rel="None" type="image/png" href="mstile-270x270.png" />
+        <link rel="None" type="image/png" href="mstile-310x310.png" />
+        <link rel="None" type="image/png" href="mstile-310x150.png" />
+        <link rel="shortcut icon" type="image/png" href="favicon-196x196.png" />
+      <link rel="mask-icon" href="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/main/media/safari-pinned-tab.svg" color="#332233">
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Hexal Book" />
+<meta property="og:image" content="https://hexal.hexxy.media/v/latest/main/zh_cn/icon.png" />
+<meta property="og:url" content="https://hexal.hexxy.media/v/latest/main/zh_cn" />
+<meta property="og:description" content="The Hexal Book, all in one place." />
+<meta property="og:site_name" content="Hexal (latest/main)" />
+      <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+      integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"
+        integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="index.css">
+      <link rel="stylesheet" href="textures.css">
+      <noscript>
+        <style>
+          /* for accessibility */
+          .spoilered {
+            filter: none !important;
+          }
+        </style>
+      </noscript>
+        <script type="module" src="index.js"></script>
+  <script type="module" src="hexcasting.js"></script>
+  <script type="module" src="hexcasting_render.js"></script>
+  </head>
+  <body>
+<nav class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button
+        type="button"
+        class="navbar-toggle collapsed"
+        data-toggle="collapse"
+        data-target="#navbar-collapse"
+        aria-expanded="false"
+      >
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../..">Hexal Book</a>
+    </div>
+    <div class="collapse navbar-collapse" id="navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+            <li>
+    <a
+      href="https://github.com/FallingColors/Hexal/tree/229cd0014794149728088b40a7c1595ba27aa4a8"
+        target="_blank"
+      class="navbar-link"
+      role="button"
+      aria-haspopup="true"
+      aria-expanded="false"
+    >GitHub <i class="bi bi-box-arrow-up-right external-link-icon"></i></a>
+  </li>
+        <li class="dropdown">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >latest/main <span class="caret"></span></a>
+          <ul class="dropdown-menu" id="version-dropdown"></ul>
+        </li>
+        <li class="dropdown">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >简体中文 (中国大陆) <span class="caret"></span></a>
+          <ul class="dropdown-menu dropdown-menu-left" id="lang-dropdown"></ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container" style="margin-top: 3em;">
+  <blockquote>
+      <h1><p>这是Hexal文档的在线版本。</p></h1>
+        <p>此版本是根据GitHub上最新代码构建而来的。其中可能包含游戏内暂未实装的<strong>新</strong>特性，就连Modrinth和CurseForge上的最新版本里也找不到！</p>
+      <p><strong>条目的模糊处理相当于剧透警告</strong>。点击条目即可取消模糊，不过这么做有可能破坏游戏后期的进程与体验。也可点击<a href="?nospoiler">此处</a>以取消所有模糊。</p>
+      <span id="old-version-notice" class="hidden">
+        <br />
+        <p><i>往事犹若异乡；他们在那里做的事情都不一样。</i></p>
+      </span>
+  </blockquote>
+</div>
+<div class="container">
+<div id="table-of-contents"></div>
+<nav class="toc-container">
+  <h2 class="page-header">
+    <span class="nobr">目录<a
+      href="javascript:void(0)"
+      class="permalink toggle-link small"
+      data-target="toc-category"
+      title="显示或收起全部"
+    ><i class="bi bi-list-nested"></i></a><a
+    href="#table-of-contents"
+    class="permalink small toc-permalink"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></span>
+  </h2>
+    <details class="toc-category">
+      <summary><a href="#basics" class="toc-elem "><img
+      title="紫水晶碎片"
+      alt="紫水晶碎片"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/amethyst_shard.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > 初入咒法</a></summary>
+      <ul>
+          <li><a href="#basics/slipways" class="toc-elem "><img
+      title="橡木门"
+      alt="橡木门"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/oak_door.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > 质道</a></li>
+      </ul>
+    </details>
+    <details class="toc-category">
+      <summary><a href="#items" class="toc-elem "><img
+      title="核心"
+      alt="核心"
+      src="https://raw.githubusercontent.com/FallingColors/HexMod/36423bf55332842533600c931f8bd6c4c76e60be/Common/src/main/resources/assets/hexcasting/textures/item/cad/0_focus_empty.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > 物品</a></summary>
+      <ul>
+          <li><a href="#items/relay" class="toc-elem "><img
+      title="继链器"
+      alt="继链器"
+      src="https://hexal.hexxy.media/v/latest/main/assets/hexal/textures/block/relay.png"
+      loading="lazy"
+      class="item-texture  texture "
+    > 继链器</a></li>
+      </ul>
+    </details>
+    <details class="toc-category">
+      <summary><a href="#interop" class="toc-elem "><img
+      title="锁链"
+      alt="锁链"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/chain.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > 模组联动</a></summary>
+      <ul>
+          <li><a href="#interop/fabric_only_hexal" class="toc-elem "><img
+      title="白色羊毛"
+      alt="白色羊毛"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.20.1/1.0.dev1/assets/minecraft/textures/block/white_wool.png"
+      loading="lazy"
+      class="item-texture  texture "
+    > 咒术拓展：Fabric 独占法术</a></li>
+      </ul>
+    </details>
+    <details class="toc-category">
+      <summary><a href="#patterns" class="toc-elem "><img
+      title="书架"
+      alt="书架"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.20.1/1.0.dev1/assets/minecraft/textures/block/bookshelf.png"
+      loading="lazy"
+      class="item-texture  texture "
+    > 图案</a></summary>
+      <ul>
+          <li><a href="#patterns/hexal_basics" class="toc-elem "><img
+      title="木锹"
+      alt="木锹"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/wooden_shovel.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > 咒法拓展：基础图案</a></li>
+          <li><a href="#patterns/hexal_maths" class="toc-elem "><img
+      title="竹子"
+      alt="竹子"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/bamboo.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > 咒法拓展：数学</a></li>
+          <li><a href="#patterns/everbook" class="toc-elem spoilered"><img
+      title="末地传送门框架"
+      alt="末地传送门框架"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.20.1/1.0.dev1/assets/minecraft/textures/block/end_portal_frame.png"
+      loading="lazy"
+      class="item-texture  texture "
+    > 永恒之书</a></li>
+          <li><a href="#patterns/everbook_entries" class="toc-elem spoilered"><img
+      title="末地传送门框架"
+      alt="末地传送门框架"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.20.1/1.0.dev1/assets/minecraft/textures/block/end_portal_frame.png"
+      loading="lazy"
+      class="item-texture  texture "
+    > 永恒之书条目</a></li>
+      </ul>
+    </details>
+    <details class="toc-category">
+      <summary><a href="#patterns/spells" class="toc-elem "><img
+      title="附魔书"
+      alt="附魔书"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/enchanted_book.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > 法术</a></summary>
+      <ul>
+          <li><a href="#patterns/spells/hexal_spells" class="toc-elem "><img
+      title="熔炉"
+      alt="熔炉"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.20.1/1.0.dev1/assets/minecraft/textures/block/furnace.png"
+      loading="lazy"
+      class="item-texture  texture "
+    > 咒法拓展：法术</a></li>
+          <li><a href="#patterns/spells/wisps" class="toc-elem "><img
+      title="荧石粉"
+      alt="荧石粉"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/glowstone_dust.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > 咒灵</a></li>
+          <li><a href="#patterns/spells/links" class="toc-elem "><img
+      title="线"
+      alt="线"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/string.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > 链接</a></li>
+          <li><a href="#patterns/spells/motes" class="toc-elem spoilered"><img
+      title="箱子"
+      alt="箱子"
+      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAC4jAAAuIwF4pT92AAAAJElEQVQoz2NkwAF+MPzAKs7EQCIY1UAMYMQV3hwMHKOhRD8NAPogBA/DVsDEAAAAAElFTkSuQmCC"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > 物元</a></li>
+      </ul>
+    </details>
+    <details class="toc-category">
+      <summary><a href="#patterns/great_spells" class="toc-elem "><img
+      title="潮涌能量"
+      alt="潮涌能量"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/mob_effect/conduit_power.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > 卓越法术</a></summary>
+      <ul>
+          <li><a href="#patterns/great_spells/tick" class="toc-elem "><img
+      title="时钟"
+      alt="时钟"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/clock_00.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > 加速</a></li>
+          <li><a href="#patterns/great_spells/great_wisps" class="toc-elem "><img
+      title="下界之星"
+      alt="下界之星"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/nether_star.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > 卓越咒灵法术</a></li>
+          <li><a href="#patterns/great_spells/gates" class="toc-elem "><img
+      title="末地传送门框架"
+      alt="末地传送门框架"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.20.1/1.0.dev1/assets/minecraft/textures/block/end_portal_frame.png"
+      loading="lazy"
+      class="item-texture  texture "
+    > 门径</a></li>
+      </ul>
+    </details>
+</nav>
+  <main class="book-body">
+<section id="basics">
+    <h2 class="category-title page-header">
+    <img
+      title="紫水晶碎片"
+      alt="紫水晶碎片"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/amethyst_shard.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >初入咒法<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#basics"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h2>
+    <p>研究这种魔法的人士会用<a href="https://hexcasting.hexxy.media/v/0.11.1-7/1.0/en_us#items/staff"><span style="color: #b0b">法杖</span></a>在空中绘制奇异的图案来施放他们口中的“<span style="color: #b38ef3">咒术</span>”，他们也会让<a href="https://hexcasting.hexxy.media/v/0.11.1-7/1.0/en_us#items/hexcasting"><span style="color: #b0b">强大的魔法物品</span></a>替他们施法。我应该也可以这样做？</p>
+<div id="basics/slipways" class="entry">
+    <h3 class="entry-title page-header">
+    <img
+      title="橡木门"
+      alt="橡木门"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/oak_door.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >质道<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#basics/slipways"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+    <p>我曾听说过某些晶洞中有形如泛着光的传送门的东西，它们被称作“质道”。这些质道通常“被莹莹光点围绕”，和我所知的<a href="#patterns/spells/wisps"><span style="color: #8d6acc">咒灵</span></a>十分相似。也许它们之间的联系值得研究。</p>
+<br />
+</div>
+</section>
+<section id="items">
+    <h2 class="category-title page-header">
+    <img
+      title="核心"
+      alt="核心"
+      src="https://raw.githubusercontent.com/FallingColors/HexMod/36423bf55332842533600c931f8bd6c4c76e60be/Common/src/main/resources/assets/hexcasting/textures/item/cad/0_focus_empty.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >物品<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#items"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h2>
+    <p>这部分主要介绍我在研究过程中可能要用到的魔法物品和各类神秘物品。</p>
+<div id="items/relay" class="entry">
+    <h3 class="entry-title page-header">
+    <img
+      title="继链器"
+      alt="继链器"
+      src="https://hexal.hexxy.media/v/latest/main/assets/hexal/textures/block/relay.png"
+      loading="lazy"
+      class="item-texture  texture "
+    >继链器<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#items/relay"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+    <p>我常希望有方法能<a href="#patterns/spells/links@hexal:link"><span style="color: #fc77be">连接</span></a>多个<a href="#patterns/spells/wisps"><span style="color: #8d6acc">咒灵</span></a>，以便远距共享媒质和信息。然而用咒灵远距中继相当不方便，常态消耗也很大。为解决这些问题，我制造出了继链器。它们是固态方块而非媒质构造体，也因此在维持链接时不会有常态消耗。</p>
+<br />
+    <p>相互连接的继链器会形成网络，与之连接的咒灵会共享媒质，类似于咒灵间直接相连。此外，传给网络内任一继链器的 iota 会发送给连接至网络的所有非继链器事物。继链器的工作范围是 32 格（也即两个继链器可链接的最远距离为 64 格）。手持染色剂右击任一继链器即可改变网络链接的颜色。</p>
+<br />
+  <details class="details-collapsible recipe-details">
+      <summary class="collapse-details">
+    <span class="collapse-recipe-show">点击以显示配方</span>
+    <span class="collapse-recipe-hide">点击以隐藏配方</span>
+  </summary>
+    <div class="crafting-tables">
+<div>
+    <h5>继链器</h5>
+    <div class="crafting-table">
+        <img
+      title="工作台"
+      alt="工作台"
+      src="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/780c5ccff48c7c103ebd679b7774d3dfd36ba4f9/src/hexdoc/_export/resources/assets/minecraft/textures/gui/hexdoc/crafting_table.png"
+      class="texture pixelated"
+    >
+  <div class="crafting-table-grid">
+        <div></div>        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="充能紫水晶"
+      alt="充能紫水晶"
+      src="https://raw.githubusercontent.com/FallingColors/HexMod/36423bf55332842533600c931f8bd6c4c76e60be/Common/src/main/resources/assets/hexcasting/textures/item/charged_amethyst.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture pixelated"
+    >
+        </div>
+        <div></div>        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="板岩块"
+      alt="板岩块"
+      src="https://hexcasting.hexxy.media/v/0.11.1-7/1.0/assets/hexcasting/textures/block/slate_block.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="板岩块"
+      alt="板岩块"
+      src="https://hexcasting.hexxy.media/v/0.11.1-7/1.0/assets/hexcasting/textures/block/slate_block.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="板岩块"
+      alt="板岩块"
+      src="https://hexcasting.hexxy.media/v/0.11.1-7/1.0/assets/hexcasting/textures/block/slate_block.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="板岩块"
+      alt="板岩块"
+      src="https://hexcasting.hexxy.media/v/0.11.1-7/1.0/assets/hexcasting/textures/block/slate_block.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="紫水晶块"
+      alt="紫水晶块"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.20.1/1.0.dev1/assets/minecraft/textures/block/amethyst_block.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+        <div class="texture item-texture multi-textures cycle-textures">
+                <img
+      title="板岩块"
+      alt="板岩块"
+      src="https://hexcasting.hexxy.media/v/0.11.1-7/1.0/assets/hexcasting/textures/block/slate_block.png"
+      loading="lazy"
+      class="item-texture multi-texture-active texture "
+    >
+        </div>
+  </div>
+  <div class="crafting-table-result recipe-item-slot">
+    <img
+      title="继链器"
+      alt="继链器"
+      src="https://hexal.hexxy.media/v/latest/main/assets/hexal/textures/block/relay.png"
+      loading="lazy"
+      class="item-texture  texture "
+    >
+  </div>
+    </div>
+</div>    </div>
+  </details>
+      <p>继链器没有所有者，若要我的咒灵和其<a href="#patterns/spells/wisps@hexal:wisp/transfer/allow"><span style="color: #fc77be">转送媒质</span></a>，则必须先允许咒灵这么做。</p>
+<br />
+</div>
+</section>
+<section id="interop">
+    <h2 class="category-title page-header">
+    <img
+      title="锁链"
+      alt="锁链"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/chain.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >模组联动<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#interop"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h2>
+    <p>It appears I have installed some mods Hexcasting interoperates with! I&#39;ve detailed them here.</p>
+<div id="interop/fabric_only_hexal" class="entry">
+    <h3 class="entry-title page-header">
+    <img
+      title="白色羊毛"
+      alt="白色羊毛"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.20.1/1.0.dev1/assets/minecraft/textures/block/white_wool.png"
+      loading="lazy"
+      class="item-texture  texture "
+    >咒术拓展：Fabric 独占法术<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#interop/fabric_only_hexal"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+  <div id="interop/fabric_only_hexal@hexal:interop/fabric_only/phase_block" class="">
+<h4 class="pattern-title">暂消方块 (vec, num →)<a
+    href="#interop/fabric_only_hexal@hexal:interop/fabric_only/phase_block"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="daqqqa"
+        data-start="west"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：daqqqa</canvas>
+  </details>
+      <p>接受一个位置向量和一个数，并使所给位置上方块的体积消失所给数秒。消耗 1/1000 与消失时间的平方的乘积个<a href="https://hexcasting.hexxy.media/v/0.11.1-7/1.0/en_us#items/amethyst"><span style="color: #b0b">紫水晶粉</span></a>。</p>
+  </div>
+<br />
+</div>
+</section>
+<section id="patterns">
+    <h2 class="category-title page-header">
+    <img
+      title="书架"
+      alt="书架"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.20.1/1.0.dev1/assets/minecraft/textures/block/bookshelf.png"
+      loading="lazy"
+      class="item-texture  texture "
+    >图案<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h2>
+    <p>我所发现的各式图案，和它们的功用。</p>
+<div id="patterns/hexal_basics" class="entry">
+    <h3 class="entry-title page-header">
+    <img
+      title="木锹"
+      alt="木锹"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/wooden_shovel.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >咒法拓展：基础图案<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/hexal_basics"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+  <div id="patterns/hexal_basics@hexal:current_tick" class="">
+<h4 class="pattern-title">计时员之精思 (→ number)<a
+    href="#patterns/hexal_basics@hexal:current_tick"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="ddwaa"
+        data-start="north_west"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：ddwaa</canvas>
+  </details>
+      <p>返回一个数，这个数似乎与自然记录时间的方式有关。如果先绘制一遍此图案，在 1 秒后再绘制一遍，返回的数会增加 20。</p>
+  </div>
+<br />
+  <div id="patterns/hexal_basics@hexal:breath" class="">
+<h4 class="pattern-title">潜水员之纯化 (entity → num)<a
+    href="#patterns/hexal_basics@hexal:breath"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="aqawdwaqawd"
+        data-start="north_west"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：aqawdwaqawd</canvas>
+  </details>
+      <p>移除栈顶实体，并返回其剩余氧气值（也即距其溺水还有多少氧气值可消耗）。</p>
+  </div>
+<br />
+  <div id="patterns/hexal_basics@hexal:health" class="">
+<h4 class="pattern-title">护士之纯化 (entity → num)<a
+    href="#patterns/hexal_basics@hexal:health"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="aqwawqa"
+        data-start="north_west"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：aqwawqa</canvas>
+  </details>
+      <p>移除栈顶实体，并返回其剩余生命值（也即距其死亡还有多少生命值可损失）。</p>
+  </div>
+<br />
+  <div id="patterns/hexal_basics@hexal:armour" class="">
+<h4 class="pattern-title">乡绅之纯化 (entity → num)<a
+    href="#patterns/hexal_basics@hexal:armour"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="wqqqqw"
+        data-start="north_west"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：wqqqqw</canvas>
+  </details>
+      <p>移除栈顶实体，并返回其护甲值。</p>
+  </div>
+<br />
+  <div id="patterns/hexal_basics@hexal:toughness" class="">
+<h4 class="pattern-title">拳击手之纯化 (entity → num)<a
+    href="#patterns/hexal_basics@hexal:toughness"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="aeqqqqea"
+        data-start="east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：aeqqqqea</canvas>
+  </details>
+      <p>移除栈顶实体，并返回其盔甲韧性（盔甲的另一属性）。</p>
+  </div>
+<br />
+  <div id="patterns/hexal_basics@hexal:light_level" class="">
+<h4 class="pattern-title">灯夫之纯化 (vec → num)<a
+    href="#patterns/hexal_basics@hexal:light_level"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="qedqde"
+        data-start="north_east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：qedqde</canvas>
+  </details>
+      <p>移除栈顶位置向量，并返回该处光照强度。</p>
+  </div>
+<br />
+</div>
+<div id="patterns/hexal_maths" class="entry">
+    <h3 class="entry-title page-header">
+    <img
+      title="竹子"
+      alt="竹子"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/bamboo.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >咒法拓展：数学<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/hexal_maths"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+  <div id="patterns/hexal_maths@hexal:factorial" class="">
+<h4 class="pattern-title">阶乘之纯化 (num → num)<a
+    href="#patterns/hexal_maths@hexal:factorial"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="wawdedwaw"
+        data-start="south_east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：wawdedwaw</canvas>
+  </details>
+      <p>移除栈顶数，返回其阶乘。例如输入 4 则会返回 4 * 3 * 2 * 1 = 24。</p>
+  </div>
+<br />
+  <div id="patterns/hexal_maths@hexal:running/sum" class="">
+<h4 class="pattern-title">前缀和之纯化 ([num] → [num])<a
+    href="#patterns/hexal_maths@hexal:running/sum"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="aea"
+        data-start="west"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：aea</canvas>
+  </details>
+      <p>接受栈顶列表，并计算其前缀和。例如输入 [1, 2, 5] 则会返回 [1, 3, 8]。</p>
+  </div>
+<br />
+  <div id="patterns/hexal_maths@hexal:running/mul" class="">
+<h4 class="pattern-title">前缀积之纯化 ([num] → [num])<a
+    href="#patterns/hexal_maths@hexal:running/mul"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="qaawaaq"
+        data-start="north_east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：qaawaaq</canvas>
+  </details>
+      <p>接受栈顶列表，并计算其前缀积。例如输入 [1, 2, 5] 则会返回 [1, 2, 10]。</p>
+  </div>
+<br />
+</div>
+<div id="patterns/everbook" class="entry">
+    <div class="spoilered">
+      <h3 class="entry-title page-header">
+    <img
+      title="末地传送门框架"
+      alt="末地传送门框架"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.20.1/1.0.dev1/assets/minecraft/textures/block/end_portal_frame.png"
+      loading="lazy"
+      class="item-texture  texture "
+    >永恒之书<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/everbook"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+    <p>永恒之书是一片奇特的空间，如今已对我残破的意识开放。似乎有许多个我共用所有永恒之书的记录，共享不同世界的研究成果，又不断重新研究。永恒之书能够将图案和 iota 对应并存储，和<a href="https://hexcasting.hexxy.media/v/0.11.1-7/1.0/en_us#greatwork/akashiclib"><span style="color: #b0b">阿卡夏记录</span></a>类似。不过考虑到如今我意识的脆弱，可能还是把永恒之书的访问权限全部交给<a href="https://hexcasting.hexxy.media/v/0.11.1-7/1.0/en_us#greatwork/akashiclib"><span style="color: #b0b">阿卡夏记录</span></a>比较好。只要在某个世界中获得启迪，我就能在那个世界中访问永恒之书的所有内容。</p>
+<br />
+  <div id="patterns/everbook@hexal:everbook/read" class="">
+<h4 class="pattern-title">谟涅摩叙涅之策略 (vector, pattern →)<a
+    href="#patterns/everbook@hexal:everbook/read"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="eweeewedqdeddw"
+        data-start="north_east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：eweeewedqdeddw</canvas>
+  </details>
+      <p>接受指向<a href="https://hexcasting.hexxy.media/v/0.11.1-7/1.0/en_us#greatwork/akashiclib"><span style="color: #b0b">阿卡夏记录</span></a>的位置向量，与一个作为键的图案，并返回永恒之书中对应键处的 iota，若能存储则同时会将其存至给定的<a href="https://hexcasting.hexxy.media/v/0.11.1-7/1.0/en_us#greatwork/akashiclib"><span style="color: #b0b">阿卡夏记录</span></a>中。</p>
+  </div>
+<br />
+  <div id="patterns/everbook@hexal:everbook/write" class="">
+<h4 class="pattern-title">极乐园之策略 (vector, pattern →)<a
+    href="#patterns/everbook@hexal:everbook/write"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="qwqqqwqaeaqaaw"
+        data-start="south_east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：qwqqqwqaeaqaaw</canvas>
+  </details>
+      <p>接受指向<a href="https://hexcasting.hexxy.media/v/0.11.1-7/1.0/en_us#greatwork/akashiclib"><span style="color: #b0b">阿卡夏记录</span></a>的位置向量，与一个作为键的图案，并将阿卡夏记录中该图案对应的 iota 以同一图案存至永恒之书中。</p>
+  </div>
+<br />
+  <div id="patterns/everbook@hexal:everbook/delete" class="">
+<h4 class="pattern-title">忘川之策略 (pattern →)<a
+    href="#patterns/everbook@hexal:everbook/delete"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="qwqqqwqaww"
+        data-start="south_east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：qwqqqwqaww</canvas>
+  </details>
+      <p>接受一个图案，并移除永恒之书中该图案对应的条目。</p>
+  </div>
+<br />
+  <div id="patterns/everbook@hexal:everbook/toggle_macro" class="">
+<h4 class="pattern-title">布莱之策略 (pattern →)<a
+    href="#patterns/everbook@hexal:everbook/toggle_macro"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="eweeewedww"
+        data-start="south_west"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：eweeewedww</canvas>
+  </details>
+      <p>接受一个图案，并以该图案标记永恒之书中对应条目，使得绘制该图案所产生的效果和自然创造的其他图案相仿。</p>
+  </div>
+<br />
+    <p>当绘制被标记的永恒之书条目所对应的图案时，如果对应条目存有一个列表，则自然会如同<a href="https://hexcasting.hexxy.media/v/0.11.1-7/1.0/en_us#patterns/meta@hexcasting:eval"><span style="color: #fc77be">赫尔墨斯之策略</span></a>一样依次执行列表中各元素，但不会消耗递归层数。试图将不存在的条目或是会无限递归的条目标记为图案则会失败。</p>
+<br />
+    </div>
+</div>
+<div id="patterns/everbook_entries" class="entry">
+    <div class="spoilered">
+      <h3 class="entry-title page-header">
+    <img
+      title="末地传送门框架"
+      alt="末地传送门框架"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.20.1/1.0.dev1/assets/minecraft/textures/block/end_portal_frame.png"
+      loading="lazy"
+      class="item-texture  texture "
+    >永恒之书条目<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/everbook_entries"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+    <p>此条目中每一页都会显示我<a href="#patterns/everbook"><span style="color: #fc77be">永恒之书</span></a>中某一条目对应的图案键。</p>
+<br />
+    </div>
+</div>
+</section>
+<section id="patterns/spells">
+    <h2 class="category-title page-header">
+    <img
+      title="附魔书"
+      alt="附魔书"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/enchanted_book.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >法术<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/spells"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h2>
+    <p>能以魔法影响到世界的图案和操作。</p>
+<div id="patterns/spells/hexal_spells" class="entry">
+    <h3 class="entry-title page-header">
+    <img
+      title="熔炉"
+      alt="熔炉"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.20.1/1.0.dev1/assets/minecraft/textures/block/furnace.png"
+      loading="lazy"
+      class="item-texture  texture "
+    >咒法拓展：法术<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/spells/hexal_spells"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+  <div id="patterns/spells/hexal_spells@hexal:smelt" class="">
+<h4 class="pattern-title">烧炼 (vec | entity | mote →)<a
+    href="#patterns/spells/hexal_spells@hexal:smelt"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="wqqqwqqadad"
+        data-start="east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：wqqqwqqadad</canvas>
+  </details>
+      <p>移除栈顶位置向量、物品实体或物元，然后烧炼该处方块，或同时烧炼物品实体或物元中所有物品。</p>
+  </div>
+<br />
+    <p>每烧炼一个物品消耗 3/4 个<a href="https://hexcasting.hexxy.media/v/0.11.1-7/1.0/en_us#items/amethyst"><span style="color: #b0b">紫水晶粉</span></a>。（也即烧炼 1 个方块消耗 3/4 个<a href="https://hexcasting.hexxy.media/v/0.11.1-7/1.0/en_us#items/amethyst"><span style="color: #b0b">紫水晶粉</span></a>，同时烧炼 8 个物品消耗 6 个<a href="https://hexcasting.hexxy.media/v/0.11.1-7/1.0/en_us#items/amethyst"><span style="color: #b0b">紫水晶粉</span></a>。）</p>
+<br />
+  <div id="patterns/spells/hexal_spells@hexal:freeze" class="">
+<h4 class="pattern-title">冻结 (vec →)<a
+    href="#patterns/spells/hexal_spells@hexal:freeze"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="weeeweedada"
+        data-start="west"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：weeeweedada</canvas>
+  </details>
+      <p>冻结所给坐标处方块。例如，水变为冰，冰变为浮冰。消耗 1 个<a href="https://hexcasting.hexxy.media/v/0.11.1-7/1.0/en_us#items/amethyst"><span style="color: #b0b">紫水晶粉</span></a>。</p>
+  </div>
+<br />
+  <div id="patterns/spells/hexal_spells@hexal:falling_block" class="">
+<h4 class="pattern-title">坠落方块 (vec →)<a
+    href="#patterns/spells/hexal_spells@hexal:falling_block"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="wqwawqwqwqwqwqw"
+        data-start="east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：wqwawqwqwqwqwqw</canvas>
+  </details>
+      <p>移除栈顶位置向量，并使该处方块下落，就像沙子和沙砾一样。消耗 3/2 个<a href="https://hexcasting.hexxy.media/v/0.11.1-7/1.0/en_us#items/amethyst"><span style="color: #b0b">紫水晶粉</span></a>。</p>
+  </div>
+<br />
+  <div id="patterns/spells/hexal_spells@hexal:place_type" class="">
+<h4 class="pattern-title">放置方块，第二型 ((itemtype | mote), vec →)<a
+    href="#patterns/spells/hexal_spells@hexal:place_type"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="eeeeedeeeee"
+        data-start="west"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：eeeeedeeeee</canvas>
+  </details>
+      <p>接受一个物品类型或物元和一个位置向量，并会尝试在该位置处放置所给物品类型的方块。若传入物元，则会从对应的物元记录中放置。消耗 1/8 个<a href="https://hexcasting.hexxy.media/v/0.11.1-7/1.0/en_us#items/amethyst"><span style="color: #b0b">紫水晶粉</span></a>。</p>
+  </div>
+<br />
+  <div id="patterns/spells/hexal_spells@hexal:particles" class="">
+<h4 class="pattern-title">粒子 (vec | [vec] →)<a
+    href="#patterns/spells/hexal_spells@hexal:particles"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="eqqqqa"
+        data-start="north_east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：eqqqqa</canvas>
+  </details>
+      <p>接受一个位置向量或一个由位置向量组成的列表，并在所给位置处生成粒子，或在所给列表各位置之间生成粒子连线。每个位置向量消耗 1/500 个<a href="https://hexcasting.hexxy.media/v/0.11.1-7/1.0/en_us#items/amethyst"><span style="color: #b0b">紫水晶粉</span></a>。</p>
+  </div>
+<br />
+</div>
+<div id="patterns/spells/wisps" class="entry">
+    <h3 class="entry-title page-header">
+    <img
+      title="荧石粉"
+      alt="荧石粉"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/glowstone_dust.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >咒灵<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/spells/wisps"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+    <p>我发现了一种能仅以媒质创造法术构造体的方式，它们能被他人看见，能移动，也有一定自主行动能力。它们能代替我施法，和<a href="https://hexcasting.hexxy.media/v/0.11.1-7/1.0/en_us#patterns/meta@hexcasting:eval"><span style="color: #fc77be">赫尔墨斯之策略</span></a>类似。不过保持它们的形态确实要耗费我的注意力，而且如果太多咒灵要同时施法，我也只能同时运行其中一部分，剩下的则要稍作延迟。</p>
+<br />
+    <p>创造咒灵时需要给它们分配它们能访问的一块媒质“储库”（后称媒质库）。这些媒质由我提供，用于形成咒灵本身。咒灵会常态消耗媒质，而当其运行其携带的图案列表时，其中各操作要消耗的媒质也会从媒质库中抽取。所有种类的咒灵似乎都需要 3 个<a href="https://hexcasting.hexxy.media/v/0.11.1-7/1.0/en_us#items/amethyst"><span style="color: #b0b">紫水晶粉</span></a>才能召唤，并同时消耗等同于其媒质库容量的媒质。</p>
+<br />
+  <div id="patterns/spells/wisps@hexal:wisp/summon/projectile" class="">
+<h4 class="pattern-title">召唤弹射式咒灵 ([pattern], vec, vec, number →)<a
+    href="#patterns/spells/wisps@hexal:wisp/summon/projectile"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="aqaeqeeeee"
+        data-start="north_west"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：aqaeqeeeee</canvas>
+  </details>
+      <p>这种咒灵被召唤时会像箭一样被弹射出去，而后会在其击中的事物上施放咒术。其初始栈包含一个代表其自身的 iota 和一个代表其击中的事物的 iota。</p>
+  </div>
+<br />
+    <p>第二个 iota 可以是一个位置向量，也可以是一个实体。第二个向量的模似乎会影响咒灵的速度，此法术消耗的媒质量会以速度向量模的平方增加。接受的数代表咒灵媒质库的容量（以<a href="https://hexcasting.hexxy.media/v/0.11.1-7/1.0/en_us#items/amethyst"><span style="color: #b0b">紫水晶粉</span></a>计）。召唤后它每秒会消耗 3/10 个<a href="https://hexcasting.hexxy.media/v/0.11.1-7/1.0/en_us#items/amethyst"><span style="color: #b0b">紫水晶粉</span></a>，且其影响区域半径为 4 格。</p>
+<br />
+  <div id="patterns/spells/wisps@hexal:wisp/summon/ticking" class="">
+<h4 class="pattern-title">召唤循环式咒灵 ([pattern], vec, number →)<a
+    href="#patterns/spells/wisps@hexal:wisp/summon/ticking"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="aqaweewaqawee"
+        data-start="north_west"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：aqaweewaqawee</canvas>
+  </details>
+      <p>此法术与召唤弹射式咒灵类似，但只会接受一个代表召唤位置的向量。循环式咒灵一经召唤就不再移动，并会以每秒 20 次的频率施法。</p>
+  </div>
+<br />
+    <p>其初始栈包含一个代表其自身的 iota，而后每次施法开始时会保留上一次施法后的栈和渡鸦之思。这种咒灵的形态较不稳定，常态消耗率远大于弹射式咒灵。其每秒消耗 7/10 个<a href="https://hexcasting.hexxy.media/v/0.11.1-7/1.0/en_us#items/amethyst"><span style="color: #b0b">紫水晶粉</span></a>。其影响区域半径为 8 格。</p>
+<br />
+  <div id="patterns/spells/wisps@hexal:wisp/self" class="">
+<h4 class="pattern-title">自我之精思 (→ entity)<a
+    href="#patterns/spells/wisps@hexal:wisp/self"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="dedwqqwdedwqqaw"
+        data-start="north_east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：dedwqqwdedwqqaw</canvas>
+  </details>
+      <p>返回一个代表施法咒灵的 iota。此操作必须由咒灵执行。尝试用法杖执行会招致可怖的事故。</p>
+  </div>
+<br />
+  <div id="patterns/spells/wisps@hexal:wisp/media" class="">
+<h4 class="pattern-title">储罐之精思 (→ num)<a
+    href="#patterns/spells/wisps@hexal:wisp/media"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="aqaweewaqaweedw"
+        data-start="north_west"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：aqaweewaqaweedw</canvas>
+  </details>
+      <p>将咒灵媒质库中剩余的媒质量压入栈顶。此操作必须由咒灵执行。尝试用法杖执行会招致可怖的事故。</p>
+  </div>
+<br />
+  <div id="patterns/spells/wisps@hexal:wisp/hex" class="">
+<h4 class="pattern-title">经理之纯化 (entity → [pattern])<a
+    href="#patterns/spells/wisps@hexal:wisp/hex"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="aweewaqaweewaawww"
+        data-start="south_east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：aweewaqaweewaawww</canvas>
+  </details>
+      <p>移除一个咒灵实体，并返回该咒灵所携带的咒术。所给 iota 必须代表由我召唤的咒灵，或<a href="#patterns/spells/wisps@hexal:wisp/transfer/allow">允许</a>与施法者或其所有者转送的咒灵。</p>
+  </div>
+<br />
+  <div id="patterns/spells/wisps@hexal:wisp/owner" class="">
+<h4 class="pattern-title">效忠之馏化 (entity, entity → bool)<a
+    href="#patterns/spells/wisps@hexal:wisp/owner"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="dwqqwdedwqqwddwww"
+        data-start="south_west"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：dwqqwdedwqqwddwww</canvas>
+  </details>
+      <p>移除一个咒灵实体和一个实体，若该实体是该咒灵的所有者，返回 True；否则返回 False。</p>
+  </div>
+<br />
+  <div id="patterns/spells/wisps@hexal:wisp/move/target/set" class="">
+<h4 class="pattern-title">开拓者之策略 (vec →)<a
+    href="#patterns/spells/wisps@hexal:wisp/move/target/set"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="awqwawqaw"
+        data-start="west"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：awqwawqaw</canvas>
+  </details>
+      <p>移除栈顶位置向量。运行此图案的循环式咒灵会沿直线移动至所给位置（会与途中地形地貌等碰撞），直至抵达该位置处。</p>
+  </div>
+<br />
+  <div id="patterns/spells/wisps@hexal:wisp/move/target/get" class="">
+<h4 class="pattern-title">开拓者之精思 (→ vec)<a
+    href="#patterns/spells/wisps@hexal:wisp/move/target/get"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="ewdwewdew"
+        data-start="east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：ewdwewdew</canvas>
+  </details>
+      <p>返回循环式咒灵当前目标位置的位置向量。</p>
+  </div>
+<br />
+  <div id="patterns/spells/wisps@hexal:wisp/move/speed/set" class="">
+<h4 class="pattern-title">急速 (num →)<a
+    href="#patterns/spells/wisps@hexal:wisp/move/speed/set"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="aeawqqqae"
+        data-start="west"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：aeawqqqae</canvas>
+  </details>
+      <p>移除栈顶数，并将循环式咒灵自身的速度上限设为该数。</p>
+  </div>
+<br />
+  <div id="patterns/spells/wisps@hexal:wisp/move/speed/get" class="">
+<h4 class="pattern-title">速度计之精思 (→ num)<a
+    href="#patterns/spells/wisps@hexal:wisp/move/speed/get"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="eeewdqdee"
+        data-start="east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：eeewdqdee</canvas>
+  </details>
+      <p>返回循环式咒灵自身当前速度上限。</p>
+  </div>
+<br />
+  <div id="patterns/spells/wisps@hexal:wisp/transfer/allow" class="">
+<h4 class="pattern-title">允许转送 (num →)<a
+    href="#patterns/spells/wisps@hexal:wisp/transfer/allow"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="qqqqqewwqeeeee"
+        data-start="north_west"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：qqqqqewwqeeeee</canvas>
+  </details>
+      <p>当两咒灵<a href="#patterns/spells/links"><span style="color: #8d6acc">连接</span></a>时，它们会相互转送媒质，直至两者平衡。默认状况下，仅所有者相同的咒灵会自发转送。此操作接受一个编号数，并显式允许咒灵与该编号链接另一端的事物交换媒质。</p>
+  </div>
+<br />
+  <div id="patterns/spells/wisps@hexal:wisp/transfer/disallow" class="">
+<h4 class="pattern-title">禁止转送 (num →)<a
+    href="#patterns/spells/wisps@hexal:wisp/transfer/disallow"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="qqqqqeqdeddweqqqqq"
+        data-start="north_west"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：qqqqqeqdeddweqqqqq</canvas>
+  </details>
+      <p>相应地，此操作接受一个编号数，并禁止咒灵与该编号链接另一端的事物交换媒质。</p>
+  </div>
+<br />
+  <div id="patterns/spells/wisps@hexal:wisp/transfer/others/allow" class="">
+<h4 class="pattern-title">允许转送其他 (wisp, num →)<a
+    href="#patterns/spells/wisps@hexal:wisp/transfer/others/allow"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="eeeeeqwweqqqqq"
+        data-start="south_west"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：eeeeeqwweqqqqq</canvas>
+  </details>
+      <p>接受一个咒灵实体（所有者需是我）和一个编号数，并允许该咒灵与该编号链接另一端的事物交换媒质。</p>
+  </div>
+<br />
+  <div id="patterns/spells/wisps@hexal:wisp/transfer/others/disallow" class="">
+<h4 class="pattern-title">禁止转送其他 (wisp, num →)<a
+    href="#patterns/spells/wisps@hexal:wisp/transfer/others/disallow"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="eeeeeqeaqaawqeeeee"
+        data-start="south_west"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：eeeeeqeaqaawqeeeee</canvas>
+  </details>
+      <p>接受一个咒灵实体（所有者需是我）和一个编号数，并禁止该咒灵与该编号链接另一端的事物交换媒质。</p>
+  </div>
+<br />
+  <div id="patterns/spells/wisps@hexal:get_entity/wisp" class="">
+<h4 class="pattern-title">实体之纯化：咒灵 (vec → entity | null)<a
+    href="#patterns/spells/wisps@hexal:get_entity/wisp"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="qqwdedwqqdaqaaww"
+        data-start="south_east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：qqwdedwqqdaqaaww</canvas>
+  </details>
+      <p>将栈顶位置向量变为该处咒灵（若无则返回 <a href="https://hexcasting.hexxy.media/v/0.11.1-7/1.0/en_us#casting/influences"><span style="color: #8d6acc">Null</span></a>）。</p>
+  </div>
+<br />
+  <div id="patterns/spells/wisps@hexal:zone_entity/wisp" class="">
+<h4 class="pattern-title">区域之馏化：咒灵 (vec, num → [entity])<a
+    href="#patterns/spells/wisps@hexal:zone_entity/wisp"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="qqwdedwqqwdeddww"
+        data-start="south_east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：qqwdedwqqwdeddww</canvas>
+  </details>
+      <p>从栈顶获取位置及最大距离，返回该位置给定距离范围内所有咒灵的列表。</p>
+  </div>
+<br />
+  <div id="patterns/spells/wisps@hexal:zone_entity/not_wisp" class="">
+<h4 class="pattern-title">区域之馏化：非咒灵 (vec, num → [entity])<a
+    href="#patterns/spells/wisps@hexal:zone_entity/not_wisp"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="eewaqaweewaqaaww"
+        data-start="north_east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：eewaqaweewaqaaww</canvas>
+  </details>
+      <p>从栈顶获取位置及最大距离，返回该位置给定距离范围内所有非咒灵实体的列表。</p>
+  </div>
+<br />
+  <div id="patterns/spells/wisps@hexal:wisp/trigger/tick" class="">
+<h4 class="pattern-title">延迟咒灵 (number →)<a
+    href="#patterns/spells/wisps@hexal:wisp/trigger/tick"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="aqawded"
+        data-start="north_west"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：aqawded</canvas>
+  </details>
+      <p>移除栈顶数，然后将咒灵下一次施法时刻更改为延迟所给数个 1/20 秒。所有可用于延迟咒灵施法的操作均能使咒灵的常态消耗减半，直到下一次施法为止。</p>
+  </div>
+<br />
+  <div id="patterns/spells/wisps@hexal:wisp/trigger/comm" class="">
+<h4 class="pattern-title">监听<a
+    href="#patterns/spells/wisps@hexal:wisp/trigger/comm"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="aqqqqqwdeddw"
+        data-start="east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：aqqqqqwdeddw</canvas>
+  </details>
+      <p>咒灵将在其收到至少一次<a href="#patterns/spells/links@hexal:link/comm/send"><span style="color: #fc77be">通信</span></a>后才进行下一次施法。</p>
+  </div>
+<br />
+  <div id="patterns/spells/wisps@hexal:wisp/trigger/move" class="">
+<h4 class="pattern-title">巡航<a
+    href="#patterns/spells/wisps@hexal:wisp/trigger/move"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="eqwawqwaqww"
+        data-start="east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：eqwawqwaqww</canvas>
+  </details>
+      <p>咒灵将在其抵达被<a href="#patterns/spells/wisps@hexal:wisp/move/target/set"><span style="color: #fc77be">导向</span></a>的位置后才进行下一次施法。</p>
+  </div>
+<br />
+</div>
+<div id="patterns/spells/links" class="entry">
+    <h3 class="entry-title page-header">
+    <img
+      title="线"
+      alt="线"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/string.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >链接<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/spells/links"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+    <p>这些图案大致构建了一套能在<a href="#patterns/spells/wisps"><span style="color: #8d6acc">咒灵</span></a>间以及咒灵和其他事物间传递信息的系统。有若干图案与创建链接有关，也有些图案和通过链接发送和接收 iota 的方式相关。一个咒灵能同时维持任意数目的链接，每条每 1/20 秒常态消耗极少量媒质。</p>
+<br />
+    <p>可链接事物会以创建顺序为这些链接编号，此编号可用作图案的参数。介绍中的“可链接事物”（Linkable）不是具体参数类型，而是指代所有可被转换为可链接事物的类型。（例如，Entity -&gt; Linkable entities，Vec -&gt; Linkable blocks等等。）链接仅会在两可链接事物影响范围之和的两倍内起效。若要跨更远的距离连接两者，应该转而使用<a href="#items/relay"><span style="color: #b0b">继链器</span></a>。</p>
+<br />
+  <div id="patterns/spells/links@hexal:link" class="">
+<h4 class="pattern-title">链接 (linkable →)<a
+    href="#patterns/spells/links@hexal:link"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="eaqaaeqqqqqaweaqaaw"
+        data-start="east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：eaqaaeqqqqqaweaqaaw</canvas>
+  </details>
+      <p>将施法者链接至栈顶实体，且实体必须为可链接的。消耗 1 个<a href="https://hexcasting.hexxy.media/v/0.11.1-7/1.0/en_us#items/amethyst"><span style="color: #b0b">紫水晶碎片</span></a>。</p>
+  </div>
+<br />
+  <div id="patterns/spells/links@hexal:link/others" class="">
+<h4 class="pattern-title">链接其他 (linkable, linkable →)<a
+    href="#patterns/spells/links@hexal:link/others"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="eqqqqqawqeeeeedww"
+        data-start="east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：eqqqqqawqeeeeedww</canvas>
+  </details>
+      <p>可在任意施法器件上运行。将两个实体链接，且两实体必须均为可链接的。消耗 1 个<a href="https://hexcasting.hexxy.media/v/0.11.1-7/1.0/en_us#items/amethyst"><span style="color: #b0b">紫水晶碎片</span></a>。</p>
+  </div>
+<br />
+  <div id="patterns/spells/links@hexal:link/unlink" class="">
+<h4 class="pattern-title">解链接 (num →)<a
+    href="#patterns/spells/links@hexal:link/unlink"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="qdeddqeeeeedwqdeddw"
+        data-start="west"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：qdeddqeeeeedwqdeddw</canvas>
+  </details>
+      <p>断开施法者的编号为所给数的链接。消耗 2 个<a href="https://hexcasting.hexxy.media/v/0.11.1-7/1.0/en_us#items/amethyst"><span style="color: #b0b">紫水晶粉</span></a>。</p>
+  </div>
+<br />
+  <div id="patterns/spells/links@hexal:link/unlink/others" class="">
+<h4 class="pattern-title">解链接其他 (linkable, linkable →)<a
+    href="#patterns/spells/links@hexal:link/unlink/others"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="qeeeeedweqqqqqaww"
+        data-start="west"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：qeeeeedweqqqqqaww</canvas>
+  </details>
+      <p>接受两个可链接事物，若其间存在链接，则会将其断开。消耗 2 个<a href="https://hexcasting.hexxy.media/v/0.11.1-7/1.0/en_us#items/amethyst"><span style="color: #b0b">紫水晶粉</span></a>。</p>
+  </div>
+<br />
+  <div id="patterns/spells/links@hexal:link/get" class="">
+<h4 class="pattern-title">电话簿之纯化 (num → linkable)<a
+    href="#patterns/spells/links@hexal:link/get"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="eqqqqqaww"
+        data-start="east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：eqqqqqaww</canvas>
+  </details>
+      <p>移除栈顶数，并返回对应编号的链接所连的实体。</p>
+  </div>
+<br />
+  <div id="patterns/spells/links@hexal:link/get_index" class="">
+<h4 class="pattern-title">识别之纯化 (linkable → num)<a
+    href="#patterns/spells/links@hexal:link/get_index"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="aeqqqqqawwd"
+        data-start="south_west"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：aeqqqqqawwd</canvas>
+  </details>
+      <p>移除栈顶实体，并返回自身与该实体相连的链接的编号。若施法者与其无链接则返回 -1。</p>
+  </div>
+<br />
+  <div id="patterns/spells/links@hexal:link/num" class="">
+<h4 class="pattern-title">名气之精思 (→ num)<a
+    href="#patterns/spells/links@hexal:link/num"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="qeeeeedww"
+        data-start="west"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：qeeeeedww</canvas>
+  </details>
+      <p>返回自身的链接个数。</p>
+  </div>
+<br />
+  <div id="patterns/spells/links@hexal:link/comm/send" class="">
+<h4 class="pattern-title">发送Iota (num, any →)<a
+    href="#patterns/spells/links@hexal:link/comm/send"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="qqqqqwdeddw"
+        data-start="north_west"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：qqqqqwdeddw</canvas>
+  </details>
+      <p>移除栈顶元素与数，而后向编号为该数的链接发送该元素。消耗 1/100 个<a href="https://hexcasting.hexxy.media/v/0.11.1-7/1.0/en_us#items/amethyst"><span style="color: #b0b">紫水晶粉</span></a>。</p>
+  </div>
+<br />
+  <div id="patterns/spells/links@hexal:link/comm/read" class="">
+<h4 class="pattern-title">朗诵之精思 (→ any)<a
+    href="#patterns/spells/links@hexal:link/comm/read"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="weeeeew"
+        data-start="north_east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：weeeeew</canvas>
+  </details>
+      <p>当接收到 iota 时其将被加至一个队列中。此图案会将该队列中的首个 iota 压入栈顶并移出队列。</p>
+  </div>
+<br />
+  <div id="patterns/spells/links@hexal:link/comm/num" class="">
+<h4 class="pattern-title">邮政局长之精思 (→ num)<a
+    href="#patterns/spells/links@hexal:link/comm/num"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="aweeeeewaa"
+        data-start="south_east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：aweeeeewaa</canvas>
+  </details>
+      <p>返回接收队列中未读 iota 的个数。</p>
+  </div>
+<br />
+  <div id="patterns/spells/links@hexal:link/comm/clear" class="">
+<h4 class="pattern-title">除塞之策略<a
+    href="#patterns/spells/links@hexal:link/comm/clear"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="aweeeeewa"
+        data-start="south_east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：aweeeeewa</canvas>
+  </details>
+      <p>移除施法者接收队列中所有未读 iota。</p>
+  </div>
+<br />
+  <div id="patterns/spells/links@hexal:link/comm/open_transmit" class="">
+<h4 class="pattern-title">开始发信 (num →)<a
+    href="#patterns/spells/links@hexal:link/comm/open_transmit"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="qwdedwq"
+        data-start="west"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：qwdedwq</canvas>
+  </details>
+      <p>与<a href="https://hexcasting.hexxy.media/v/0.11.1-7/1.0/en_us#patterns/patterns_as_iotas@hexcasting:open_paren"><span style="color: #fc77be">内省</span></a>类似。在绘制<a href="#patterns/spells/links@hexal:link/comm/close_transmit"><span style="color: #fc77be">结束发信</span></a>后，所有我绘制的图案会通过编号为栈顶数的链接发送出去。</p>
+  </div>
+<br />
+  <div id="patterns/spells/links@hexal:link/comm/close_transmit" class="">
+<h4 class="pattern-title">结束发信<a
+    href="#patterns/spells/links@hexal:link/comm/close_transmit"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="ewaqawe"
+        data-start="east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：ewaqawe</canvas>
+  </details>
+      <p>在<a href="#patterns/spells/links@hexal:link/comm/open_transmit"><span style="color: #fc77be">开始发信</span></a>之后绘制，意味着发信过程结束。如果<a href="#patterns/spells/links@hexal:link/comm/open_transmit"><span style="color: #fc77be">开始发信</span></a>或<a href="#patterns/spells/links@hexal:link/comm/close_transmit"><span style="color: #fc77be">结束发信</span></a>是由中介施法者（如咒灵）运行的话，则会产生事故。</p>
+  </div>
+<br />
+</div>
+<div id="patterns/spells/motes" class="entry">
+    <div class="spoilered">
+      <h3 class="entry-title page-header">
+    <img
+      title="箱子"
+      alt="箱子"
+      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAC4jAAAuIwF4pT92AAAAJElEQVQoz2NkwAF+MPzAKs7EQCIY1UAMYMQV3hwMHKOhRD8NAPogBA/DVsDEAAAAAElFTkSuQmCC"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >物元<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/spells/motes"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+    <p>此条目主要记述如何将物品本身拉进媒质，使其可被引用，可被计数，并将秩序带给它们也带给我也带给我的意识也带给——。压入栈中的媒质化物品 iota（称为“物元”）都代表着物元枢纽中的某个物元记录。这是因为假如没有东西承载物品中的思维模式，物品本身就会消亡——就像我的意识的剥脱——</p>
+<br />
+    <p>所有物元 iota 的复制版本都指向同一物元记录，也正因此，对其中一个做出的修改将同步到所有复制版本中去。拆分与合并与合成与交易都影响所有影响所有——</p>
+<br />
+    <p>物元枢纽也有部分限制，但也只是部分。它最多能存放 1023 条记录，但每条记录中物品的个数则没有上限。我还没发现任何能证明上限存在的证据，我能合并再合并再合并再合并直到永远记录增长然后增长然后增……</p>
+<br />
+  <details class="details-collapsible flay-recipe-details">
+    <summary class="collapse-details">
+      <span class="collapse-recipe-show">点击以显示配方</span>
+      <span class="collapse-recipe-hide">点击以隐藏配方</span>
+    </summary>
+  <div>
+<h5>物元枢纽</h5>
+    <div class="flay-recipe">
+        <img
+          class="flay-recipe-background"
+          alt="Flay Mind Recipe GUI"
+          src="https://raw.githubusercontent.com/FallingColors/HexMod/36423bf55332842533600c931f8bd6c4c76e60be/doc/resources/assets/hexcasting/textures/gui/hexdoc/brainsweep.png"
+        >
+<img
+      title="学徒 制图师"
+      alt="学徒 制图师"
+      src="https://raw.githubusercontent.com/FallingColors/HexMod/36423bf55332842533600c931f8bd6c4c76e60be/doc/resources/assets/minecraft/textures/entities/villagers/cartographer.png"
+      loading="lazy"
+      class="flay-recipe-entity texture pixelated"
+    >
+<div class="flay-recipe-villager-details">
+  <img
+    class="flay-recipe-villager-detail-icon"
+    alt="村庄英雄"
+    src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/mob_effect/hero_of_the_village.png"
+    style="width: 16px; height:16px"
+  >
+    Villager must be a 学徒 制图师 or higher
+</div>
+        <div class="flay-recipe-block-ingredient">
+          <img
+      title="潜影盒"
+      alt="潜影盒"
+      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAADAFBMVEV/Wn+PZ49/WX+PZY9/W39/V3+PZI93V3d3Und3VHeHXoeHX4d3VXeXZ5eHW4eXapeXaZeHXIeXZpdwUHCXa5eHYIdwT3CPZo+XZZd/WH9wTnCPY493UHfn5+ceHh4fHx8gICAhISEiIiIjIyMkJCQlJSUmJiYnJycoKCgpKSkqKiorKyssLCwtLS0uLi4vLy8wMDAxMTEyMjIzMzM0NDQ1NTU2NjY3Nzc4ODg5OTk6Ojo7Ozs8PDw9PT0+Pj4/Pz9AQEBBQUFCQkJDQ0NERERFRUVGRkZHR0dISEhJSUlKSkpLS0tMTExNTU1OTk5PT09QUFBRUVFSUlJTU1NUVFRVVVVWVlZXV1dYWFhZWVlaWlpbW1tcXFxdXV1eXl5fX19gYGBhYWFiYmJjY2NkZGRlZWVmZmZnZ2doaGhpaWlqampra2tsbGxtbW1ubm5vb29wcHBxcXFycnJzc3N0dHR1dXV2dnZ3d3d4eHh5eXl6enp7e3t8fHx9fX1+fn5/f3+AgICBgYGCgoKDg4OEhISFhYWGhoaHh4eIiIiJiYmKioqLi4uMjIyNjY2Ojo6Pj4+QkJCRkZGSkpKTk5OUlJSVlZWWlpaXl5eYmJiZmZmampqbm5ucnJydnZ2enp6fn5+goKChoaGioqKjo6OkpKSlpaWmpqanp6eoqKipqamqqqqrq6usrKytra2urq6vr6+wsLCxsbGysrKzs7O0tLS1tbW2tra3t7e4uLi5ubm6urq7u7u8vLy9vb2+vr6/v7/AwMDBwcHCwsLDw8PExMTFxcXGxsbHx8fIyMjJycnKysrLy8vMzMzNzc3Ozs7Pz8/Q0NDR0dHS0tLT09PU1NTV1dXW1tbX19fY2NjZ2dna2trb29vc3Nzd3d3e3t7f39/g4ODh4eHi4uLj4+Pk5OTl5eXm5ubn5+fo6Ojp6enq6urr6+vs7Ozt7e3u7u7v7+/w8PDx8fHy8vLz8/P09PT19fX29vb39/f4+Pj5+fn6+vr7+/v8/Pz9/f3+/v7///+JEps3AAAAq0lEQVQYGQXBAYLCIBADwBREYSEmxRat5//feTPAtiXkfCs539I9P5Briz5q9FYjRkvYRpDRyXjK+yhAp+a0xSkpXihh25Z9kDwX7qOTsknbMYB3Cx362NNkbxcQk5zkJE3HF+gfS5qUScZCbqdNkza1t4S/utuWbJO9FSBsfijJpmMh9YM6ZNK2+8K7PTUjNKNPnzUh/2rs7Rd9jDhHAwbKWldaq+D7uq71D1bmDPu8ciyvAAAAAElFTkSuQmCC"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >
+        </div>
+        <div class="flay-recipe-result">
+          <img
+      title="物元枢纽"
+      alt="物元枢纽"
+      src="https://hexal.hexxy.media/v/latest/main/assets/hexal/textures/block/mediafied_storage.png"
+      loading="lazy"
+      class="item-texture  texture "
+    >
+        </div>
+    </div>
+  </div>
+</details>
+  <p>物元枢纽是用制图师的意识制成的，它会永不中断地标记和映射对应<span style="color: #b0b">潜影盒</span>中的物品。</p>
+<br />
+  <div id="patterns/spells/motes@hexal:mote/storage/bind" class="">
+<h4 class="pattern-title">绑定储库 (vec →)<a
+    href="#patterns/spells/motes@hexal:mote/storage/bind"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="qaqwqaqwqaq"
+        data-start="north_west"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：qaqwqaqwqaq</canvas>
+  </details>
+      <p>锚定一个物元枢纽，并将自身与其绑定，所有我媒质化的物品都会存入该枢纽。若锚定至其他枢纽则会自动解开与原枢纽的绑定。消耗 32 个<a href="https://hexcasting.hexxy.media/v/0.11.1-7/1.0/en_us#items/amethyst"><span style="color: #b0b">紫水晶粉</span></a>。</p>
+  </div>
+<br />
+  <div id="patterns/spells/motes@hexal:mote/storage/bind/temp" class="">
+<h4 class="pattern-title">绑定储库，临时型 (vec →)<a
+    href="#patterns/spells/motes@hexal:mote/storage/bind/temp"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="edewedewede"
+        data-start="north_east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：edewedewede</canvas>
+  </details>
+      <p>锚定一个物元枢纽，在当前咒术结束前将自身与其绑定。其在本咒术内会暂时覆盖永久性绑定的枢纽。消耗 1/1000 个<a href="https://hexcasting.hexxy.media/v/0.11.1-7/1.0/en_us#items/amethyst"><span style="color: #b0b">紫水晶粉</span></a>。</p>
+  </div>
+<br />
+  <div id="patterns/spells/motes@hexal:mote/contained_type/get" class="">
+<h4 class="pattern-title">盘货之精思 (→ [itemtype])<a
+    href="#patterns/spells/motes@hexal:mote/contained_type/get"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="dwqqqqqwddww"
+        data-start="north_east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：dwqqqqqwddww</canvas>
+  </details>
+      <p>获取当前绑定的枢纽中所有物元的类型。</p>
+  </div>
+<br />
+  <div id="patterns/spells/motes@hexal:mote/contained/get" class="">
+<h4 class="pattern-title">盘货之纯化 (mote | itemtype → [mote])<a
+    href="#patterns/spells/motes@hexal:mote/contained/get"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="aweeeeewaaww"
+        data-start="south_east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：aweeeeewaaww</canvas>
+  </details>
+      <p>获取当前绑定的枢纽中所有和所给物品类型对应的，或所有可与所给物元合并的物元。</p>
+  </div>
+<br />
+  <div id="patterns/spells/motes@hexal:mote/storage/remaining_capacity/get" class="">
+<h4 class="pattern-title">容量之精思 (→ int)<a
+    href="#patterns/spells/motes@hexal:mote/storage/remaining_capacity/get"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="awedqdewa"
+        data-start="south_east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：awedqdewa</canvas>
+  </details>
+      <p>获取所绑定的枢纽剩余的空间。</p>
+  </div>
+<br />
+  <div id="patterns/spells/motes@hexal:mote/storage/contains" class="">
+<h4 class="pattern-title">容纳之馏化 (vec, (itemtype | mote) → bool)<a
+    href="#patterns/spells/motes@hexal:mote/storage/contains"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="dwqaeaqwd"
+        data-start="north_east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：dwqaeaqwd</canvas>
+  </details>
+      <p>若所给位置的物元枢纽中包含所给类型的物元，或包含可与所给物元合并的物元，则返回 True，否则返回 False。</p>
+  </div>
+<br />
+  <div id="patterns/spells/motes@hexal:mote/make" class="">
+<h4 class="pattern-title">媒质化物品 (item | item, mote → mote)<a
+    href="#patterns/spells/motes@hexal:mote/make"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="eaqa"
+        data-start="west"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：eaqa</canvas>
+  </details>
+      <p>将世界中的物品（物品实体、物品展示框）转换为物元。若传入物元，则会将所给物体与该物元合并。媒质化 1 份物品消耗 1/10 个<a href="https://hexcasting.hexxy.media/v/0.11.1-7/1.0/en_us#items/amethyst"><span style="color: #b0b">紫水晶粉</span></a>。</p>
+  </div>
+<br />
+  <div id="patterns/spells/motes@hexal:mote/return" class="">
+<h4 class="pattern-title">返还物品 (mote, vec | mote, vec, num →)<a
+    href="#patterns/spells/motes@hexal:mote/return"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="qded"
+        data-start="east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：qded</canvas>
+  </details>
+      <p>将物元中所有物品返还到所给位置处。若传入数，则最多返还该数个物品。消耗 1/10 个<a href="https://hexcasting.hexxy.media/v/0.11.1-7/1.0/en_us#items/amethyst"><span style="color: #b0b">紫水晶粉</span></a>。</p>
+  </div>
+<br />
+  <div id="patterns/spells/motes@hexcasting:abs" class="">
+<h4 class="pattern-title">长度之纯化 (mote → int)<a
+    href="#patterns/spells/motes@hexcasting:abs"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="wqaqw"
+        data-start="north_east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：wqaqw</canvas>
+  </details>
+      <p>接受物元，并返回该物元对应的记录中物品的个数。</p>
+  </div>
+<br />
+  <div id="patterns/spells/motes@hexcasting:add" class="">
+<h4 class="pattern-title">加法之馏化 (mote, mote → mote)<a
+    href="#patterns/spells/motes@hexcasting:add"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="waaw"
+        data-start="north_east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：waaw</canvas>
+  </details>
+      <p>将两个物元合并，也同时合并两者所指向的物元记录。指向第二条记录的物元会变为 Null，指向第一条的物元不会。如此就能在栈中放下远超我随身携带量的物品了！</p>
+  </div>
+<br />
+  <div id="patterns/spells/motes@hexal:mote/combinable" class="">
+<h4 class="pattern-title">堆叠之馏化，第二型 (mote, (mote | item) → bool)<a
+    href="#patterns/spells/motes@hexal:mote/combinable"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="dedqeaqa"
+        data-start="south_west"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：dedqeaqa</canvas>
+  </details>
+      <p>若第一参数物元可与第二参数（物元、物品组、物品实体、物品展示框）中物品合并，返回 True，否则返回 False。</p>
+  </div>
+<br />
+  <div id="patterns/spells/motes@hexal:mote/split" class="">
+<h4 class="pattern-title">拆分之策略 (mote, int → mote, mote)<a
+    href="#patterns/spells/motes@hexal:mote/split"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="eaqaaw"
+        data-start="east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：eaqaaw</canvas>
+  </details>
+      <p>从所给物元中拆分出所给数个物品，以此创建一条物元记录并返回对应物元 iota。</p>
+  </div>
+<br />
+  <div id="patterns/spells/motes@hexal:mote/storage/get" class="">
+<h4 class="pattern-title">货场之纯化 (mote → vec)<a
+    href="#patterns/spells/motes@hexal:mote/storage/get"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="qqqqqaw"
+        data-start="south_west"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：qqqqqaw</canvas>
+  </details>
+      <p>获取存储所给物元的枢纽的位置。</p>
+  </div>
+<br />
+  <div id="patterns/spells/motes@hexal:mote/storage/set" class="">
+<h4 class="pattern-title">货场之策略 (mote, vec → mote)<a
+    href="#patterns/spells/motes@hexal:mote/storage/set"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="eeeeedw"
+        data-start="south_east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：eeeeedw</canvas>
+  </details>
+      <p>将所给物元对应的记录转移到所给位置处的物元枢纽中，并会返回指向新记录的物元 iota，且所有指向原记录的物元均会失效。</p>
+  </div>
+<br />
+  <div id="patterns/spells/motes@hexal:mote/craft" class="">
+<h4 class="pattern-title">合成 (mote | [mote] | [[mote]] → [mote])<a
+    href="#patterns/spells/motes@hexal:mote/craft"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="wwawdedwawdewwdwaqawdwwedwawdedwaww"
+        data-start="south_east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：wwawdedwawdewwdwaqawdwwedwawdedwaww</canvas>
+  </details>
+      <p>接受物元，物元组成的列表，或物元列表组成的列表。并返回包含以对应物品合成所得产物的列表。例如，输入“石头 x128”会返回 [石头按钮 x128]。</p>
+  </div>
+<br />
+    <p>更为复杂的合成表则需要在对应位置插入 Null。例如合成钻石镐，会需要 [[钻石 x2, 钻石 x2, 钻石 x2], [Null, 木棍 x2], [Null, 木棍 x2]]，并返回 [钻石镐 x2]。消耗 1/10 个<a href="https://hexcasting.hexxy.media/v/0.11.1-7/1.0/en_us#items/amethyst"><span style="color: #b0b">紫水晶粉</span></a>。</p>
+<br />
+  <div id="patterns/spells/motes@hexal:mote/craft/preview" class="">
+<h4 class="pattern-title">预览合成 (item | [item] | [[item]] → [item])<a
+    href="#patterns/spells/motes@hexal:mote/craft/preview"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="wwdwaqawdwaqwwawdedwawwqawdwaqawdww"
+        data-start="north_east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：wwdwaqawdwaqwwawdedwawwqawdwaqawdww</canvas>
+  </details>
+      <p>参数与<a href="#patterns/spells/motes@hexal:mote/craft"><span style="color: #fc77be">合成</span></a>相同，且除物元外还能接受物品组。返回物品组列表，各元素代表<a href="#patterns/spells/motes@hexal:mote/craft"><span style="color: #fc77be">合成</span></a>接受相应物元时产出的各产物。</p>
+  </div>
+<br />
+  <div id="patterns/spells/motes@hexal:mote/villager/level/get" class="">
+<h4 class="pattern-title">资历之纯化 (villager → int)<a
+    href="#patterns/spells/motes@hexal:mote/villager/level/get"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="qqwdedwqqaww"
+        data-start="north_west"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：qqwdedwqqaww</canvas>
+  </details>
+      <p>接受代表村民的 iota，并返回代表该村民在其职业上熟练度的数。</p>
+  </div>
+<br />
+  <div id="patterns/spells/motes@hexal:mote/trade/get" class="">
+<h4 class="pattern-title">报价之纯化 (villager → [complicated!])<a
+    href="#patterns/spells/motes@hexal:mote/trade/get"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="awdedwaawwqded"
+        data-start="south_east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：awdedwaawwqded</canvas>
+  </details>
+      <p>接受代表村民的 iota，并返回该村民所有的交易选项，返回结果是列表的列表的列表。每项交易由两个列表组成，内容分别为给出的物品和换得的物品。换得物品列表由对应的物品类型和可换得物品的数量组成。</p>
+  </div>
+<br />
+    <p>给出物品列表则由一对或两对物品类型与对应数量组成。例如，一项交易可能形如 [[[绿宝石, 1]], [红石粉, 1]]。</p>
+<br />
+  <div id="patterns/spells/motes@hexal:mote/trade" class="">
+<h4 class="pattern-title">交易 (villager, [mote], int? → item)<a
+    href="#patterns/spells/motes@hexal:mote/trade"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="awdedwaeqded"
+        data-start="north_west"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：awdedwaeqded</canvas>
+  </details>
+      <p>接受代表村民的 iota，由物元组成的列表（用于交易），和代表交易次序的整数（可选）。（上方的 int? 表示可传入 2 或 3 个参数，可选的第三个参数需为整数。）</p>
+  </div>
+<br />
+    <p>若不输入次序数，则会依次寻找交易选项，直到找到接受所给物品的选项为止。若输入，则会直接跳转至该交易选项处。这之后便会一直进行交易，直到物品耗尽或是村民停用该项为止。交易结束后会返回由所获得的物品组成的物元。</p>
+<br />
+    <p>村民会将这些交易视作直接与我进行，且会获得经验，并以此精进技艺并改进交易选项。消耗 1/10 个<a href="https://hexcasting.hexxy.media/v/0.11.1-7/1.0/en_us#items/amethyst"><span style="color: #b0b">紫水晶粉</span></a>。</p>
+<br />
+  <div id="patterns/spells/motes@hexal:mote/use_on" class="">
+<h4 class="pattern-title">使用物品 (mote, (entity | vec, vec) →)<a
+    href="#patterns/spells/motes@hexal:mote/use_on"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="qqqwqqqqaa"
+        data-start="east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：qqqwqqqqaa</canvas>
+  </details>
+      <p>接受一个物元和一个实体或位置向量和法向量。并对实体或所给位置处方块使用物元中物品。物元本身需只能含有一个物品，或其中物品极为简单（无 NBT 数据）。</p>
+  </div>
+<br />
+    </div>
+</div>
+</section>
+<section id="patterns/great_spells">
+    <h2 class="category-title page-header">
+    <img
+      title="潮涌能量"
+      alt="潮涌能量"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/mob_effect/conduit_power.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >卓越法术<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/great_spells"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h2>
+    <p>这类法术据信极难施放，但也极为强力。记载它们的文献极为少见（据称理由充分）。这也许只是某些消亡的老古董口中的胡言乱语，不过——它们只是简单的图案罢了。</p><p>试试看又能出什么错呢？</p>
+<div id="patterns/great_spells/tick" class="entry">
+    <h3 class="entry-title page-header">
+    <img
+      title="时钟"
+      alt="时钟"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/clock_00.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >加速<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/great_spells/tick"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+  <div id="patterns/great_spells/tick@hexal:tick" class="">
+<h4 class="pattern-title">加速 (vec →)<a
+    href="#patterns/great_spells/tick@hexal:tick"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="wwwdwdwwwawqqeqwqqwqeqwqq"
+        data-start="south_east"
+        data-per-world="True"
+      >浏览器不支持图案的可视化。图案代码见此：wwwdwdwwwawqqeqwqqwqeqwqq</canvas>
+  </details>
+      <p>在法术运行的那一刻，加速所给位置处方块的运作。</p>
+  </div>
+<br />
+    <p>施放此法术要消耗 1/10 个<a href="https://hexcasting.hexxy.media/v/0.11.1-7/1.0/en_us#items/amethyst"><span style="color: #b0b">紫水晶粉</span></a>，在整个咒术内，每对同一方块加速一次，额外消耗 1/1000 个<a href="https://hexcasting.hexxy.media/v/0.11.1-7/1.0/en_us#items/amethyst"><span style="color: #b0b">紫水晶粉</span></a>。</p>
+<br />
+</div>
+<div id="patterns/great_spells/great_wisps" class="entry">
+    <h3 class="entry-title page-header">
+    <img
+      title="下界之星"
+      alt="下界之星"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/nether_star.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >卓越咒灵法术<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/great_spells/great_wisps"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+  <div id="patterns/great_spells/great_wisps@hexal:wisp/consume" class="">
+<h4 class="pattern-title">拆解咒灵 (entity →)<a
+    href="#patterns/great_spells/great_wisps@hexal:wisp/consume"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="wawqwawwwewwwewwwawqwawwwewwwewdeaweewaqaweewaawwww"
+        data-start="north_west"
+        data-per-world="True"
+      >浏览器不支持图案的可视化。图案代码见此：wawqwawwwewwwewwwawqwawwwewwwewdeaweewaqaweewaawwww</canvas>
+  </details>
+      <p>移除栈顶咒灵实体，并拆解该咒灵。咒灵携带的图案不可追回，但是如果此法术是由其他咒灵施放的，那么被拆解咒灵所剩的媒质还可再加利用。</p>
+  </div>
+<br />
+    <p>若咒灵的所有者是我，或其被<a href="#patterns/spells/wisps@hexal:wisp/transfer/allow">允许</a>与施法者或其所有者转送，消耗 1 个<a href="https://hexcasting.hexxy.media/v/0.11.1-7/1.0/en_us#items/amethyst"><span style="color: #b0b">紫水晶碎片</span></a>；若咒灵的所有者是他人且未被允许转送，则消耗该咒灵所拥有的媒质量的一半。媒质的再利用效率不算特别高，会在传输过程中损耗掉被拆解咒灵媒质库容量的 1/20。</p>
+<br />
+  <div id="patterns/great_spells/great_wisps@hexal:wisp/seon/set" class="">
+<h4 class="pattern-title">绑定咒灵 (entity →)<a
+    href="#patterns/great_spells/great_wisps@hexal:wisp/seon/set"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="aqweewqaeaqweewqaqwww"
+        data-start="south_west"
+        data-per-world="True"
+      >浏览器不支持图案的可视化。图案代码见此：aqweewqaeaqweewqaqwww</canvas>
+  </details>
+      <p>在我的咒灵和我之间建立更紧密的联系。我只能同时绑定一个咒灵，但绑定咒灵的常态消耗将大大减少。</p>
+  </div>
+<br />
+  <div id="patterns/great_spells/great_wisps@hexal:wisp/seon/get" class="">
+<h4 class="pattern-title">密友之精思 (→ entity | null)<a
+    href="#patterns/great_spells/great_wisps@hexal:wisp/seon/get"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="daqweewqaeaqweewqaqwwww"
+        data-start="east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：daqweewqaeaqweewqaqwwww</canvas>
+  </details>
+      <p>返回我当前绑定的咒灵。（这并不是卓越法术，记载于此是为了方便查找。）</p>
+  </div>
+<br />
+</div>
+<div id="patterns/great_spells/gates" class="entry">
+    <h3 class="entry-title page-header">
+    <img
+      title="末地传送门框架"
+      alt="末地传送门框架"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.20.1/1.0.dev1/assets/minecraft/textures/block/end_portal_frame.png"
+      loading="lazy"
+      class="item-texture  texture "
+    >门径<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/great_spells/gates"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+    <p>门径是我有关空间远距连接和瞬间移动的长时间研究的最新成果。与我之前的试验不同的是，它能<i>极为高效地</i>完成传送任务。我已学会构造三种不同的门径，所有三种都需要巨量的媒质才能烧入现实，但后续的操作则相较之下极为便宜。</p>
+<br />
+    <p>位置锚定门径与世界上某一位置绑定，会将所有穿过它们的事物送至该位置。实体锚定门径则与世界上某一实体绑定，会将所有穿过它们的事物送至该实体处（可附带一个偏移向量，需在烧入门径时提供）。</p>
+<br />
+    <p>未锚定门径没有与任何事物绑定，可用于将实体送至任意位置。但其效率也会相应降低，只能将实体送至我所能影响的范围内的位置。门径烧入成功后，我的栈上便会出现一个代表其的 iota。我能以此 iota 标记实体，如此当我关闭门径时，所有被标记的实体就会被传送至门径终点。需注意关闭门径不会将其消耗，获得门径 iota 后便能永久使用。</p>
+<br />
+  <div id="patterns/great_spells/gates@hexal:gate/make" class="">
+<h4 class="pattern-title">门径之精思 (null | vec | vec, entity → gate)<a
+    href="#patterns/great_spells/gates@hexal:gate/make"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="qwqwqwqwqwqqeaeaeaeaeae"
+        data-start="west"
+        data-per-world="True"
+      >浏览器不支持图案的可视化。图案代码见此：qwqwqwqwqwqqeaeaeaeaeae</canvas>
+  </details>
+      <p>压入一个新的门径。所有此 iota 的复制品都指向同一个门径。消耗 32 个<a href="https://hexcasting.hexxy.media/v/0.11.1-7/1.0/en_us#items/amethyst"><span style="color: #b0b">充能紫水晶</span></a>。若传入 Null，则构造未锚定门径；若传入一个向量，则构造位置锚定门径；若传入一个向量和一个实体，则构造实体锚定门径。</p>
+  </div>
+<br />
+  <div id="patterns/great_spells/gates@hexal:gate/mark" class="">
+<h4 class="pattern-title">开启门径 (gate, entity →)<a
+    href="#patterns/great_spells/gates@hexal:gate/mark"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="qaqeede"
+        data-start="west"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：qaqeede</canvas>
+  </details>
+      <p>移除栈顶实体与门径，并标记该实体，被标记的实体会在对应门径关闭时被传送。消耗 1/20 个<a href="https://hexcasting.hexxy.media/v/0.11.1-7/1.0/en_us#items/amethyst"><span style="color: #b0b">紫水晶粉</span></a>。</p>
+  </div>
+<br />
+  <div id="patterns/great_spells/gates@hexal:gate/unmark" class="">
+<h4 class="pattern-title">解除门径 (gate, entity →)<a
+    href="#patterns/great_spells/gates@hexal:gate/unmark"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="edeqqaq"
+        data-start="east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：edeqqaq</canvas>
+  </details>
+      <p>移除栈顶门径与实体，并取消该实体的标记。若其已被<a href="#patterns/great_spells/gates@hexal:gate/mark"><span style="color: #fc77be">开启门径</span></a>标记，下一次门径关闭时其将不会被传送。</p>
+  </div>
+<br />
+  <div id="patterns/great_spells/gates@hexcasting:abs" class="">
+<h4 class="pattern-title">长度之纯化 (gate → num)<a
+    href="#patterns/great_spells/gates@hexcasting:abs"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="wqaqw"
+        data-start="north_east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：wqaqw</canvas>
+  </details>
+      <p>移除栈顶门径，返回被该门径标记的实体的数量。</p>
+  </div>
+<br />
+  <div id="patterns/great_spells/gates@hexal:gate/mark/get" class="">
+<h4 class="pattern-title">标径之馏化 (gate, entity → bool)<a
+    href="#patterns/great_spells/gates@hexal:gate/mark/get"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="edwwdeeede"
+        data-start="east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：edwwdeeede</canvas>
+  </details>
+      <p>移除栈顶门径和实体，判断该实体是否被该门径标记。</p>
+  </div>
+<br />
+  <div id="patterns/great_spells/gates@hexal:gate/close" class="">
+<h4 class="pattern-title">关闭门径 (gate | gate, vec →)<a
+    href="#patterns/great_spells/gates@hexal:gate/close"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Renders</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >Palettes</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="qqqwwqqqwqqawdedw"
+        data-start="west"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：qqqwwqqqwqqawdedw</canvas>
+  </details>
+      <p>移除栈顶锚定门径，或未锚定门径与位置向量。将所有被所给门径标记的实体传送至其锚定位置或所给位置。消耗 1/2 个<a href="https://hexcasting.hexxy.media/v/0.11.1-7/1.0/en_us#items/amethyst"><span style="color: #b0b">紫水晶碎片</span></a>。若为未锚定门径，则每个实体每传送 1 格额外消耗 1 个<a href="https://hexcasting.hexxy.media/v/0.11.1-7/1.0/en_us#items/amethyst"><span style="color: #b0b">紫水晶粉</span></a>。</p>
+  </div>
+<br />
+</div>
+</section>
+  </main>
+</div>
+      <footer class="footer">
+        <div class="container text-muted">
+          <p>该页面不是Minecraft的官方产品，不隶属于Mojang和Microsoft，且不代表Mojang和Microsoft的意见。</p><p>Minecraft的游戏内容和资源均为各自所有者的知识财产。</p><p>使用<a href="https://pypi.org/project/hexdoc/" target="_blank">hexdoc</a>精心制作。❤️</p>
+        </div>
+      </footer>
+  </body>
+</html>
