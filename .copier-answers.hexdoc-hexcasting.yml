@@ -2,7 +2,7 @@
 # See: https://copier.readthedocs.io/en/stable/configuring/#the-copier-answersyml-file
 _commit: v0.1.11
 _src_path: gh:hexdoc-dev/hexdoc-hexcasting-template
-author: Talia-12
+author: FallingColors
 book_id: hexcasting:thehexbook
 default_branch: main
 github_repo: Hexal
@@ -20,7 +20,7 @@ package_export_root: doc/src/hexdoc_hexal/_export
 package_name: hexdoc-hexal
 package_slug: hexdoc_hexal
 package_src: doc/src/hexdoc_hexal
-pages_url: https://talia-12.github.io/Hexal/
+pages_url: https://hexal.hexxy.media
 pattern_regex:
     per_world_value: 'true'
     regex: make\(\s*"(?P<name>[a-zA-Z0-9_\/]+)",\s*HexPattern\.fromAngles\(\s*"(?P<signature>[aqweds]+)",\s*HexDir.(?P<startdir>\w+)\)

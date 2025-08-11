@@ -36,7 +36,7 @@ include = [
 
 [template.args]
 mod_name = "Hexal"
-author = "Talia-12"
+author = "FallingColors"
 show_landing_text = false
 
 [extra.hexcasting]

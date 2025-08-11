@@ -32,9 +32,9 @@ pip install -e .[dev]
 
 For local testing, create a file called `.env` in the repo root following this template:
 ```sh
-GITHUB_REPOSITORY=Talia-12/Hexal
+GITHUB_REPOSITORY=FallingColors/Hexal
 GITHUB_SHA=main
-GITHUB_PAGES_URL=https://talia-12.github.io/Hexal/
+GITHUB_PAGES_URL=https://hexal.hexxy.media
 ```
 
 Useful commands:

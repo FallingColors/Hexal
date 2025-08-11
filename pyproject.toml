@@ -12,6 +12,7 @@ name = "hexdoc-hexal"
 description = "Python web book docgen and hexdoc plugin for Hexal."
 readme = "doc/README.md"
 authors = [
+    { name="FallingColors" },
     { name="Talia-12" },
 ]
 keywords = ["hexdoc"]
@@ -19,8 +20,8 @@ requires-python = ">=3.11"
 dynamic = ["version", "dependencies", "optional-dependencies"]
 
 [project.urls]
-Homepage = "https://talia-12.github.io/Hexal/"
-Source = "https://github.com/Talia-12/Hexal"
+Homepage = "https://hexal.hexxy.media"
+Source = "https://github.com/FallingColors/Hexal"
 
 # Gradle version/deps
 
