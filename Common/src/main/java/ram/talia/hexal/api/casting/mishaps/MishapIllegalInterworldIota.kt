@@ -11,6 +11,7 @@ import at.petrak.hexcasting.api.utils.isOfTag
 import at.petrak.hexcasting.common.lib.hex.HexIotaTypes
 import net.minecraft.network.chat.Component
 import net.minecraft.world.item.DyeColor
+import ram.talia.hexal.api.casting.iota.IMappableIota
 import ram.talia.hexal.common.lib.HexalTags
 
 class MishapIllegalInterworldIota(val iota: Iota) : Mishap() {
@@ -36,8 +37,8 @@ class MishapIllegalInterworldIota(val iota: Iota) : Mishap() {
                 val iotaToCheck = poolToSearch.removeFirst()
                 if (iotaTypeIsIllegal(iotaToCheck))
                     return iotaToCheck
-                if (iotaToCheck is ListIota)
-                    poolToSearch.addAll(iotaToCheck.list)
+                if (iotaToCheck.subIotas() != null)
+                    poolToSearch.addAll(iotaToCheck.subIotas()!!)
             }
 
             return null
@@ -46,6 +47,7 @@ class MishapIllegalInterworldIota(val iota: Iota) : Mishap() {
         fun replaceInNestedIota(iota: Iota): Iota {
             return when {
                 iotaTypeIsIllegal(iota) -> GarbageIota()
+                iota is IMappableIota -> iota.mapSubIotas(::replaceInNestedIota)
                 iota is ListIota -> iota.list.map { replaceInNestedIota(it) }.asActionResult[0]
                 else -> iota
             }
