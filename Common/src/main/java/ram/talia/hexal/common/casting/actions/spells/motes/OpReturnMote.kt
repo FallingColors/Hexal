@@ -29,7 +29,7 @@ object OpReturnMote : VarargSpellAction {
 
     override fun execute(args: List<Iota>, argc: Int, env: CastingEnvironment): SpellAction.Result {
         val item = args.getMote(0, argc) ?:
-            throw MishapInvalidIota.of(args[0], 1, "mote.empty")
+            throw MishapInvalidIota.of(args[0], 1, "mote_empty")
         val pos = args.getVec3(1, argc)
 
         val numToReturn = if (argc == 3) args.getInt(2, argc) else null
