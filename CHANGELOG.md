@@ -32,6 +32,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ### Fixed
 
 - Fixed internal error when an entity-anchored gate can't find its entity, by Dominik-Pawelec in [#204](https://github.com/FallingColors/Hexal/pull/204).
+- Fixed Bind Storage - Temp permanently unbinding the caster when given a non-nexus block, by pythonmcpi in [#218](https://github.com/FallingColors/Hexal/pull/218).
 - Fixed the Trade spell requiring input items in a specific order for two-item trades.
 - Fixed broken/missing lang keys for `list.double` and `list.vec`.
 - Fixed the listed cost for Summon Projectile Wisp being incorrect.
