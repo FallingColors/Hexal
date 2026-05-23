@@ -36,10 +36,10 @@ object OpUseMoteOn : VarargSpellAction {
             argc: Int,
             env: CastingEnvironment
     ): SpellAction.Result {
-        val item = args.getMote(0, argc)
+        val item = args.getMote(0, argc) ?: throw MishapInvalidIota.ofType(args[0], argc - 1, "mote")
 
-        if ((item == null) || ((item.count != 1L) && (item.tag != null) ))
-            throw MishapInvalidIota(item!!, 0, "hexcasting.mishap.invalid_value.mote_with_nbt_not_size_one".asTranslatedComponent)
+        if ((item.count != 1L) && (item.tag != null))
+            throw MishapInvalidIota(item, 0, "hexcasting.mishap.invalid_value.mote_with_nbt_not_size_one".asTranslatedComponent)
 
         if (argc == 2) {
             // Entity Version
