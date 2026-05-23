@@ -42,6 +42,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Fixed wisps without a caster being frozen forever.
 - Fixed the Relay block not dropping when broken.
 - Fixed an error when a playerless caster tries to create a link.
+- Fixed an error when passing null or an empty mote to Use Item On.
 - Fixed a variety of broken lang keys in the config menu.
 
 ## `0.3.1` - 2025-10-30
