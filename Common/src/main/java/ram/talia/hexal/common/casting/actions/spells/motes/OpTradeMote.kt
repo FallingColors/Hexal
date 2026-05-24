@@ -11,6 +11,7 @@ import net.minecraft.stats.Stats
 import net.minecraft.world.item.ItemStack
 import net.minecraft.world.item.trading.MerchantOffer
 import net.minecraft.world.item.trading.MerchantOffers
+import net.minecraft.server.level.ServerPlayer
 import ram.talia.hexal.api.HexalAPI
 import ram.talia.hexal.api.casting.castables.VarargConstMediaAction
 import ram.talia.hexal.api.casting.iota.MoteIota
@@ -55,8 +56,8 @@ object OpTradeMote : VarargConstMediaAction {
         val storage = if (userData.contains(MoteIota.TAG_TEMP_STORAGE))
             userData.getUUID(MoteIota.TAG_TEMP_STORAGE)
         else
-            env.caster?.let { MediafiedItemManager.getBoundStorage(it) }
-                    ?: throw MishapNoBoundStorage()
+            (env.castingEntity as? ServerPlayer)?.let { MediafiedItemManager.getBoundStorage(it) }
+                ?: throw MishapNoBoundStorage()
         if (!MediafiedItemManager.isStorageLoaded(storage))
             throw MishapNoBoundStorage("storage_unloaded")
 
@@ -68,8 +69,8 @@ object OpTradeMote : VarargConstMediaAction {
         if (villager.offers.isEmpty())
             return emptyList<Iota>().asActionResult
 
-        env.caster?.let { villager.updateSpecialPrices(it) }
-        villager.tradingPlayer = env.caster
+        (env.castingEntity as? ServerPlayer)?.let { villager.updateSpecialPrices(it) }
+        villager.tradingPlayer = env.castingEntity as? ServerPlayer
 
         var outRecord: ItemRecord? = null
 
@@ -95,7 +96,7 @@ object OpTradeMote : VarargConstMediaAction {
 
             if (merchantoffer.take(toTrade0, toTrade1) || merchantoffer.take(toTrade1, toTrade0)) {
                 villager.notifyTrade(merchantoffer)
-                env.caster?.awardStat(Stats.TRADED_WITH_VILLAGER)
+                (env.castingEntity as? ServerPlayer)?.awardStat(Stats.TRADED_WITH_VILLAGER)
 
                 if (outRecord == null)
                     outRecord = ItemRecord(merchantoffer.result)
