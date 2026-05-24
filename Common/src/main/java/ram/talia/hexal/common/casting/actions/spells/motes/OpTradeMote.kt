@@ -14,6 +14,7 @@ import net.minecraft.world.item.trading.MerchantOffers
 import ram.talia.hexal.api.HexalAPI
 import ram.talia.hexal.api.casting.castables.VarargConstMediaAction
 import ram.talia.hexal.api.casting.iota.MoteIota
+import ram.talia.hexal.api.casting.mishaps.MishapBadTrade
 import ram.talia.hexal.api.casting.mishaps.MishapNoBoundStorage
 import ram.talia.hexal.api.casting.mishaps.MishapStorageFull
 import ram.talia.hexal.api.config.HexalConfig
@@ -82,8 +83,15 @@ object OpTradeMote : VarargConstMediaAction {
             val merchantoffer = if (tradeIndex != null)
                     offers.getRecipeFor(toTrade0, toTrade1, tradeIndex) ?: offers.getRecipeFor(toTrade1, toTrade0, tradeIndex) ?: break
                 else getFirstMatchingInStockOffer(offers, toTrade0, toTrade1) ?: break
-            if (merchantoffer.isOutOfStock)
-                break
+            if (outRecord == null) { // if this is the first attempt, mishap if the trade isn't possible
+                if (!enoughToPay(merchantoffer, toTradeItemIotas))
+                    throw MishapBadTrade("not_enough_payment", args[1])
+                if (merchantoffer.isOutOfStock)
+                    throw MishapBadTrade("out_of_stock", args[1])
+            } else { // if we've already traded at least once, just break the loop if the trade isn't possible
+                if (!enoughToPay(merchantoffer, toTradeItemIotas) || merchantoffer.isOutOfStock)
+                    break
+            }
 
             if (merchantoffer.take(toTrade0, toTrade1) || merchantoffer.take(toTrade1, toTrade0)) {
                 villager.notifyTrade(merchantoffer)
@@ -107,6 +115,12 @@ object OpTradeMote : VarargConstMediaAction {
         villager.stopTrading()
 
         return outRecord?.let { record -> MoteIota.makeIfStorageLoaded(record, storage)?.let{ listOf(it) } } ?: null.asActionResult
+    }
+
+    private fun enoughToPay(offer: MerchantOffer, toTradeItemIotas: List<MoteIota>): Boolean {
+        val enoughA = (toTradeItemIotas.getOrNull(0)?.count ?: 0) >= offer.costA.count
+        val enoughB = (toTradeItemIotas.getOrNull(1)?.count ?: 0) >= offer.costB.count
+        return enoughA && enoughB
     }
 
     private fun getFirstMatchingInStockOffer(offers: MerchantOffers, toTrade0: ItemStack, toTrade1: ItemStack): MerchantOffer? {

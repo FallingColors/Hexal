@@ -17,7 +17,9 @@
   "hexcasting.mishap.storage_unloaded": "Bound Mote Nexus is unloaded.",
   "hexcasting.mishap.excessive_reproduction": "Wisp %s tried to reproduce excessively; only 1 child per tick.",
   "hexcasting.mishap.illegal_interworld_iota": "Attempted to bring iota %s interworld, this type of iota cannot be added to the Everbook.",
-  "hexcasting.mishap.entity_gate_with_no_entity" : "%s is anchored to an entity that is unloaded or doesn't exist.",
+  "hexcasting.mishap.entity_gate_with_no_entity": "%s is anchored to an entity that is unloaded or doesn't exist.",
+  "hexcasting.mishap.bad_trade.not_enough_payment": "%s is not enough to pay for the selected trade.",
+  "hexcasting.mishap.bad_trade.out_of_stock": "The selected trade is out of stock.",
 
   "hexcasting.mishap.bad_block.phaseable": "a phaseable block",
 
