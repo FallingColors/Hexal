@@ -98,13 +98,8 @@ class WispCastingManager(private val casterUUID: UUID, private var cachedServer:
 			val wisp = cast.wisp ?: caster!!.serverLevel().getEntity(cast.wispUUID) as? BaseCastingWisp ?: continue
 			cast.wisp = wisp
 
-			if (wisp.isRemoved)
+			if (wisp.isRemoved || wisp.level().dimension() != caster?.level()?.dimension())
 				continue
-
-			if (wisp.level().dimension() != caster?.level()?.dimension()) {
-				wisp.castCallback(WispCastResult(wisp, false, mutableListOf(), CompoundTag(), true))
-				continue
-			}
 
 			results += cast(cast)
 
