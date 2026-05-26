@@ -41,6 +41,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Fixed wisps being able to generate infinite media by consuming themselves.
 - Fixed wisps being unable to access the offhand or inventory of their caster.
 - Fixed wisps without a caster being frozen forever.
+- Fixed wisps erasing their stack and ravenmind if loaded while their caster is in another dimension.
 - Fixed the Relay block not dropping when broken.
 - Fixed an error when a playerless caster tries to create a link.
 - Fixed an error when passing null or an empty mote to Use Item On.
