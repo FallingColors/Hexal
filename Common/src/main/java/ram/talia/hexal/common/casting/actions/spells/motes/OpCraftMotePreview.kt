@@ -46,6 +46,7 @@ object OpCraftMotePreview : ConstMediaAction {
         val out = Array<ItemStack?>(9) { _ -> null }
 
         for ((idy, iota) in input.flatMap({ listOf(IndexedValue(0, it)) }, { listOf(IndexedValue(0, it)) }, { it.withIndex() })) {
+            if (idy > 2) throw MishapInvalidIota.of(input.flatMap({ it }, { it }, { ListIota(it) }), 0, "crafting_recipe")
             when (iota) {
                 is ItemStackIota -> out[idy * 3] = iota.itemStack.copyWithCount(1)
                 is MoteIota -> out[idy * 3] = iota.record?.toStack()

@@ -16,6 +16,7 @@ import net.minecraft.world.inventory.AbstractContainerMenu
 import net.minecraft.world.inventory.TransientCraftingContainer
 import net.minecraft.world.item.ItemStack
 import net.minecraft.world.item.crafting.RecipeType
+import net.minecraft.server.level.ServerPlayer
 import ram.talia.hexal.api.casting.castables.UserDataConstMediaAction
 import ram.talia.hexal.api.casting.iota.MoteIota
 import ram.talia.hexal.api.casting.iota.MoteIota.TAG_TEMP_STORAGE
@@ -49,7 +50,7 @@ object OpCraftMote : UserDataConstMediaAction {
         val storage = if (userData.contains(TAG_TEMP_STORAGE))
                 userData.getUUID(TAG_TEMP_STORAGE)
             else
-                env.caster?.let { getBoundStorage(it) }
+                (env.castingEntity as? ServerPlayer)?.let { getBoundStorage(it) }
             ?: throw MishapNoBoundStorage()
 
         if (!isStorageLoaded(storage))
@@ -92,6 +93,7 @@ object OpCraftMote : UserDataConstMediaAction {
         val out = Array<MoteIota?>(9) { _ -> null }
 
         for ((idy, iota) in input.map({ listOf(IndexedValue(0, it)) }, { it.withIndex() })) {
+            if (idy > 2) throw MishapInvalidIota.of(input.map({ it }, { ListIota(it) }), 0, "crafting_recipe")
             when (iota) {
                 is MoteIota -> out[idy * 3] = iota.selfOrNull()
                 is ListIota -> {
