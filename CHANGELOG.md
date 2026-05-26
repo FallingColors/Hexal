@@ -29,6 +29,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Moved certain lang keys for type iotas from Hexal into MoreIotas, since MoreIotas is what actually implements type iotas.
 - Phase Block now ensures that the caster has permission to break the target block.
 - Trade now mishaps if the list contains more than 2 motes, and makes it clear that the list should match a single trade offer.
+- Mote iotas now serialize the full item record they contain, rather than just the English display name.
 
 ### Fixed
 
