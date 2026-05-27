@@ -13,6 +13,7 @@
   "hexcasting.mishap.others_wisp": "That wisp is owned by %s, not you.",
   "hexcasting.mishap.no_links": "%s has no links.",
   "hexcasting.mishap.self_link": "Tried to link %s to itself.",
+  "hexcasting.mishap.item_not_found": "Couldn't find any item matching %s in the hotbar.",
   "hexcasting.mishap.no_bound_storage": "No bound Mote Nexus.",
   "hexcasting.mishap.storage_unloaded": "Bound Mote Nexus is unloaded.",
   "hexcasting.mishap.excessive_reproduction": "Wisp %s tried to reproduce excessively; only 1 child per tick.",
