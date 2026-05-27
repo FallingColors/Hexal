@@ -35,7 +35,7 @@ object OpPlaceType : SpellAction {
 
     override fun execute(args: List<Iota>, env: CastingEnvironment): SpellAction.Result {
         val block = args.getBlockTypeOrBlockItemStackOrBlockMote(0, argc) ?:
-            throw MishapInvalidIota.ofType(args[0], 1, "type.block.able")
+            throw MishapInvalidIota.of(args[0], 1, "placeable")
         val pos = args.getBlockPos(1, argc)
 
         env.assertVecInRange(pos.center)
