@@ -419,16 +419,21 @@ class BlockEntityRelay(pos: BlockPos, val state: BlockState) : HexBlockEntity(He
 
         fun acceptMedia(other: ILinkable, sentMedia: Long) {
             var remainingMedia = sentMedia
+            // distribute incoming media to all other linked objects
             for (mediaAcceptor in mediaExchangers.shuffled()) {
                 if (other == mediaAcceptor)
                     continue
 
-                val toSend = mediaAcceptor.canAcceptMedia(root, computedAverageMedia)
+                val averageMediaWithoutAcceptor = (computedAverageMedia * numMediaExchangers - mediaAcceptor.currentMediaLevel()) / (numMediaExchangers - 1)
+                val toSend = mediaAcceptor.canAcceptMedia(root, averageMediaWithoutAcceptor)
                 mediaAcceptor.acceptMedia(root, min(toSend, remainingMedia))
                 remainingMedia -= min(toSend, remainingMedia)
                 if (remainingMedia <= 0)
                     break
             }
+            // if there's any media left over, send it back where it came from
+            if (remainingMedia > 0)
+                other.acceptMedia(root, remainingMedia)
 
             linkablesAcceptedFromThisTick.add(other)
         }
