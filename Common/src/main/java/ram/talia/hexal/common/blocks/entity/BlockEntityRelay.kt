@@ -215,14 +215,13 @@ class BlockEntityRelay(pos: BlockPos, val state: BlockState) : HexBlockEntity(He
             other.setChanged()
         } else {
             // remove from list of non-relays linked to network.
+            // only decrement counts if removal succeeded (it could fail if tick() already handled the removal)
             nonRelaysLinkedDirectly.remove(other)
-            relayNetwork.nonRelays.remove(other)
-            relayNetwork.numNonRelays -= 1
+            relayNetwork.nonRelays.remove(other).let { if (it) relayNetwork.numNonRelays -= 1 }
             setChanged()
             if (other.currentMediaLevel() != -1L) {
                 mediaExchangersLinkedDirectly.remove(other)
-                relayNetwork.mediaExchangers.remove(other)
-                relayNetwork.numMediaExchangers -= 1
+                relayNetwork.mediaExchangers.remove(other).let { if (it) relayNetwork.numMediaExchangers -= 1 }
             }
         }
     }
