@@ -51,6 +51,8 @@ class BlockEntityRelay(pos: BlockPos, val state: BlockState) : HexBlockEntity(He
     private val nonRelaysLinkedDirectly: LazyILinkableSet = LazyILinkableSet()
     private var mediaExchangersLinkedDirectly: LazyILinkableSet = LazyILinkableSet()
 
+    fun sameNetwork(other: BlockEntityRelay): Boolean = other.relayNetwork == this.relayNetwork
+
     fun setPigment(pigment: FrozenPigment, level: Level) = relayNetwork.setPigment(pigment, level.gameTime)
 
     fun serverTick() {

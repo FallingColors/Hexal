@@ -36,6 +36,7 @@ import ram.talia.hexal.api.casting.wisp.triggers.WispTriggerRegistry
 import ram.talia.hexal.api.mulBounded
 import ram.talia.hexal.api.nbt.SerialisedIota
 import ram.talia.hexal.client.sounds.WispCastingSoundInstance
+import ram.talia.hexal.common.blocks.entity.BlockEntityRelay
 import ram.talia.hexal.common.lib.HexalSounds
 import ram.talia.hexal.common.network.MsgWispCastSoundS2C
 import ram.talia.hexal.xplat.IXplatAbstractions
@@ -270,8 +271,16 @@ abstract class BaseCastingWisp(entityType: EntityType<out BaseCastingWisp>, worl
 	fun blackListContains(other: ILinkable): Boolean = blackListTransferMedia.contains(other)
 	fun whiteListContains(other: ILinkable): Boolean = whiteListTransferMedia.contains(other)
 
-	private fun shouldBlockTransfer(other: ILinkable): Boolean
-		= blackListTransferMedia.contains(other) || (other.owner() != this.owner() && !whiteListTransferMedia.contains(other))
+	private fun shouldBlockTransfer(other: ILinkable): Boolean {
+		if (other is BlockEntityRelay) {
+			for (blEntry in blackListTransferMedia)
+				if (blEntry is BlockEntityRelay && blEntry.sameNetwork(other)) return true
+			for (wlEntry in whiteListTransferMedia)
+				if (wlEntry is BlockEntityRelay && wlEntry.sameNetwork(other)) return false
+			return true
+		}
+		return blackListTransferMedia.contains(other) || (other.owner() != this.owner() && !whiteListTransferMedia.contains(other))
+	}
 
 	override fun currentMediaLevel(): Long = media
 
