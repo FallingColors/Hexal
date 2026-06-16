@@ -227,7 +227,9 @@ class BlockEntityRelay(pos: BlockPos, val state: BlockState) : HexBlockEntity(He
     }
 
     fun disconnectAll() {
-        for (relay in relaysLinkedDirectly)
+        // kotlin docs claim that MutableSet supports concurrent modification, so the toMutableList shouldn't be needed,
+        // but from my testing it throws ConcurrentModificationException anyway if that's not there
+        for (relay in relaysLinkedDirectly.toMutableList())
             relay.getRelay(level)?.let { unlink(it) }
     }
 
