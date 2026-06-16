@@ -26,8 +26,7 @@ import java.util.UUID;
  * media. When the item is used up, all references to it become null.
  */
 public class MoteIota extends Iota {
-    static final String TAG_DISPLAY_NAME = "name";
-    static final String TAG_COUNT = "count";
+    static final String TAG_ITEM_RECORD = "item_record";
 
     /**
      * Used to get the UUID of the temporarily bound storage from userData, if one exists.
@@ -197,9 +196,7 @@ public class MoteIota extends Iota {
         if (record == null || (rec = record.get()) == null)
             return tag;
 
-
-        tag.putString(TAG_DISPLAY_NAME, rec.getDisplayName().getString());
-        tag.putLong(TAG_COUNT, rec.getCount());
+        rec.writeToTag(tag);
 
         return tag;
     }
@@ -223,10 +220,11 @@ public class MoteIota extends Iota {
                 return Component.translatable("hexcasting.spelldata.unknown");
             }
 
-            if (!ctag.contains(TAG_DISPLAY_NAME) || !ctag.contains(TAG_COUNT))
+            var itemRecord = ItemRecord.readFromTag(ctag);
+            if (itemRecord == null)
                 return Component.translatable("hexcasting.tooltip.null_iota").withStyle(ChatFormatting.GRAY);
 
-            return Component.translatable("hexal.spelldata.mote", ctag.getString(TAG_DISPLAY_NAME), ctag.getLong(TAG_COUNT)).withStyle(ChatFormatting.YELLOW);
+            return Component.translatable("hexal.spelldata.mote", itemRecord.getDisplayName(), itemRecord.getCount()).withStyle(ChatFormatting.YELLOW);
         }
 
         @Override

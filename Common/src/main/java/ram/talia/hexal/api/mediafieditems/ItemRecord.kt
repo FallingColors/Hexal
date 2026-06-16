@@ -118,6 +118,7 @@ data class ItemRecord(var item: Item, var tag: CompoundTag?, var count: Long) {
         /**
          * Taken from https://github.com/AppliedEnergistics/Applied-Energistics-2/blob/9ff272a869508125daf5727746c9d9b8b00248bd/src/main/java/appeng/api/stacks/AEItemKey.java#L130
          */
+        @JvmStatic
         fun readFromTag(tag: CompoundTag): ItemRecord? {
             return try {
                 val item = BuiltInRegistries.ITEM.getOptional(ResourceLocation(tag.getString(TAG_ITEM_ID))).orElseThrow { IllegalArgumentException("Unknown item id.") }
