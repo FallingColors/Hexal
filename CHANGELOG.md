@@ -24,7 +24,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - The upkeep penalty for holding a truename in a wisp is now (properly) documented.
 - Mote Nexus and Relay have been added to the Hex Casting creative mode tab.
 - Increased the cost of Phase Block to prevent short durations being castable for free.
-- Updated zh_cn translations, by ChuijkYahus in [#187](https://github.com/FallingColors/Hexal/pull/187), [#199](https://github.com/FallingColors/Hexal/pull/199), and [#206](https://github.com/FallingColors/Hexal/pull/206).
+- Updated zh_cn translations, by ChuijkYahus in [#187](https://github.com/FallingColors/Hexal/pull/187), [#199](https://github.com/FallingColors/Hexal/pull/199), [#206](https://github.com/FallingColors/Hexal/pull/206), and [#228](https://github.com/FallingColors/Hexal/pull/228).
 - Wisps can now consume themselves for free to cleanly self-destruct.
 - Moved certain lang keys for type iotas from Hexal into MoreIotas, since MoreIotas is what actually implements type iotas.
 - Phase Block now ensures that the caster has permission to break the target block.
@@ -34,6 +34,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - Fixed internal error when an entity-anchored gate can't find its entity, by Dominik-Pawelec in [#204](https://github.com/FallingColors/Hexal/pull/204).
 - Fixed Bind Storage - Temp permanently unbinding the caster when given a non-nexus block, by pythonmcpi in [#218](https://github.com/FallingColors/Hexal/pull/218).
+- Fixed a variety of issues related to transferring media through linked Relays.
 - Fixed the Trade spell requiring input items in a specific order for two-item trades.
 - Fixed broken/missing lang keys for `list.double` and `list.vec`.
 - Fixed the listed cost for Summon Projectile Wisp being incorrect.
@@ -44,6 +45,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Fixed the Relay block not dropping when broken.
 - Fixed an error when a playerless caster tries to create a link.
 - Fixed an error when passing null or an empty mote to Use Item On.
+- Fixed an error when breaking a Relay linked to multiple other Relays.
 - Fixed a variety of broken lang keys in the config menu.
 - Fixed Trade allowing trades even when not enough input items were present.
 
