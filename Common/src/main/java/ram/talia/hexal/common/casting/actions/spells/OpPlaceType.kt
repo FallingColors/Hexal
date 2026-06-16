@@ -7,6 +7,7 @@ import at.petrak.hexcasting.api.casting.eval.CastingEnvironment
 import at.petrak.hexcasting.api.casting.getBlockPos
 import at.petrak.hexcasting.api.casting.iota.Iota
 import at.petrak.hexcasting.api.casting.mishaps.MishapBadBlock
+import at.petrak.hexcasting.api.casting.mishaps.MishapBadOffhandItem
 import at.petrak.hexcasting.api.casting.mishaps.MishapInvalidIota
 import at.petrak.hexcasting.xplat.IXplatAbstractions
 import net.minecraft.core.BlockPos
@@ -26,6 +27,7 @@ import net.minecraft.world.phys.Vec3
 import ram.talia.hexal.api.config.HexalConfig
 import ram.talia.hexal.api.getBlockTypeOrBlockItemStackOrBlockMote
 import ram.talia.hexal.api.casting.iota.MoteIota
+import ram.talia.hexal.api.casting.mishaps.MishapItemNotFound
 import ram.talia.hexal.api.util.Anyone
 
 object OpPlaceType : SpellAction {
@@ -33,7 +35,7 @@ object OpPlaceType : SpellAction {
 
     override fun execute(args: List<Iota>, env: CastingEnvironment): SpellAction.Result {
         val block = args.getBlockTypeOrBlockItemStackOrBlockMote(0, argc) ?:
-            throw MishapInvalidIota.ofType(args[0], 1, "type.block.able")
+            throw MishapInvalidIota.of(args[0], 1, "placeable")
         val pos = args.getBlockPos(1, argc)
 
         env.assertVecInRange(pos.center)
@@ -49,14 +51,27 @@ object OpPlaceType : SpellAction {
         if (!worldState.canBeReplaced(placeContext))
             throw MishapBadBlock.of(pos, "replaceable")
 
+        // TODO: queryForMatchingStack() only searches the hotbar. This should be changed either to use a custom
+        //       function once hex 0.11.4 makes getUsableStacks() public, or to specify the full inventory once
+        //       https://github.com/FallingColors/HexMod/issues/1052 gets implemented.
+        val placeeStack = block.flatMap(
+            { block -> env.queryForMatchingStack { it.item is BlockItem && (it.item as BlockItem).block == block }?.copy() },
+            { itemStack -> env.queryForMatchingStack { ItemStack.isSameItemSameTags(it, itemStack) }?.copy() },
+            { itemIota -> if (itemIota.item is BlockItem) itemIota.record?.toStack()?.takeUnless { it.isEmpty } else null }
+        )
+        if (placeeStack == null) {
+            if (block.isC) throw MishapInvalidIota.of(args[0], 1, "placeable")
+            else throw MishapItemNotFound(args[0])
+        }
+
         return SpellAction.Result(
-                Spell(pos, block),
+                Spell(pos, placeeStack, block),
                 HexalConfig.server.placeTypeCost,
                 listOf(ParticleSpray.cloud(Vec3.atCenterOf(pos), 1.0))
         )
     }
 
-    private data class Spell(val pos: BlockPos, val blockOrMoteIota: Anyone<Block, ItemStack, MoteIota>) : RenderedSpell {
+    private data class Spell(val pos: BlockPos, val placeeStack: ItemStack, val blockOrMoteIota: Anyone<Block, ItemStack, MoteIota>) : RenderedSpell {
         override fun cast(env: CastingEnvironment) {
             val caster = env.caster
 
@@ -65,11 +80,6 @@ object OpPlaceType : SpellAction {
             )
 
             val bstate = env.world.getBlockState(pos)
-            val placeeStack = blockOrMoteIota.flatMap(
-                    { block -> env.queryForMatchingStack { it.item is BlockItem && (it.item as BlockItem).block == block }?.copy() },
-                    { itemStack -> env.queryForMatchingStack { ItemStack.isSameItemSameTags(it, itemStack) }?.copy() },
-                    { itemIota -> if (itemIota.item is BlockItem) itemIota.record?.toStack()?.takeUnless { it.isEmpty } else null }
-            )  ?: return
 
             if (!IXplatAbstractions.INSTANCE.isPlacingAllowed(env.world, pos, placeeStack, env.caster))
                 return
