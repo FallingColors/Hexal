@@ -273,10 +273,13 @@ abstract class BaseCastingWisp(entityType: EntityType<out BaseCastingWisp>, worl
 
 	private fun shouldBlockTransfer(other: ILinkable): Boolean {
 		if (other is BlockEntityRelay) {
+			// if the blacklist contains any relay in the target relay's network, block transfer
 			for (blEntry in blackListTransferMedia)
 				if (blEntry is BlockEntityRelay && blEntry.sameNetwork(other)) return true
+			// if the whitelist contains any relay in the target relay's network, allow transfer
 			for (wlEntry in whiteListTransferMedia)
 				if (wlEntry is BlockEntityRelay && wlEntry.sameNetwork(other)) return false
+			// if neither of the above apply, block transfer (relays must be manually whitelisted to allow transfer)
 			return true
 		}
 		return blackListTransferMedia.contains(other) || (other.owner() != this.owner() && !whiteListTransferMedia.contains(other))
