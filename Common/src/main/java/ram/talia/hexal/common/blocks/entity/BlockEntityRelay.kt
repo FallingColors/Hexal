@@ -51,6 +51,8 @@ class BlockEntityRelay(pos: BlockPos, val state: BlockState) : HexBlockEntity(He
     private val nonRelaysLinkedDirectly: LazyILinkableSet = LazyILinkableSet()
     private var mediaExchangersLinkedDirectly: LazyILinkableSet = LazyILinkableSet()
 
+    fun sameNetwork(other: BlockEntityRelay): Boolean = other.relayNetwork == this.relayNetwork
+
     fun setPigment(pigment: FrozenPigment, level: Level) = relayNetwork.setPigment(pigment, level.gameTime)
 
     fun serverTick() {
@@ -213,20 +215,21 @@ class BlockEntityRelay(pos: BlockPos, val state: BlockState) : HexBlockEntity(He
             other.setChanged()
         } else {
             // remove from list of non-relays linked to network.
+            // only decrement counts if removal succeeded (it could fail if tick() already handled the removal)
             nonRelaysLinkedDirectly.remove(other)
-            relayNetwork.nonRelays.remove(other)
-            relayNetwork.numNonRelays -= 1
+            relayNetwork.nonRelays.remove(other).let { if (it) relayNetwork.numNonRelays -= 1 }
             setChanged()
             if (other.currentMediaLevel() != -1L) {
                 mediaExchangersLinkedDirectly.remove(other)
-                relayNetwork.mediaExchangers.remove(other)
-                relayNetwork.numMediaExchangers -= 1
+                relayNetwork.mediaExchangers.remove(other).let { if (it) relayNetwork.numMediaExchangers -= 1 }
             }
         }
     }
 
     fun disconnectAll() {
-        for (relay in relaysLinkedDirectly)
+        // kotlin docs claim that MutableSet supports concurrent modification, so the toMutableList shouldn't be needed,
+        // but from my testing it throws ConcurrentModificationException anyway if that's not there
+        for (relay in relaysLinkedDirectly.toMutableList())
             relay.getRelay(level)?.let { unlink(it) }
     }
 
@@ -419,16 +422,21 @@ class BlockEntityRelay(pos: BlockPos, val state: BlockState) : HexBlockEntity(He
 
         fun acceptMedia(other: ILinkable, sentMedia: Long) {
             var remainingMedia = sentMedia
+            // distribute incoming media to all other linked objects
             for (mediaAcceptor in mediaExchangers.shuffled()) {
                 if (other == mediaAcceptor)
                     continue
 
-                val toSend = mediaAcceptor.canAcceptMedia(root, computedAverageMedia)
+                val averageMediaWithoutAcceptor = (computedAverageMedia * numMediaExchangers - mediaAcceptor.currentMediaLevel()) / (numMediaExchangers - 1)
+                val toSend = mediaAcceptor.canAcceptMedia(root, averageMediaWithoutAcceptor)
                 mediaAcceptor.acceptMedia(root, min(toSend, remainingMedia))
                 remainingMedia -= min(toSend, remainingMedia)
                 if (remainingMedia <= 0)
                     break
             }
+            // if there's any media left over, send it back where it came from
+            if (remainingMedia > 0)
+                other.acceptMedia(root, remainingMedia)
 
             linkablesAcceptedFromThisTick.add(other)
         }
