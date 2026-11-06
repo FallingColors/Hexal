@@ -40,8 +40,6 @@ class OpBindStorage(private val isTemporaryBinding: Boolean) : SpellAction {
         }
 
         override fun cast(env: CastingEnvironment, image: CastingImage): CastingImage? {
-            val caster = env.caster ?: return null // TODO
-
             if (pos == null) {
                 if (!isTemporaryBinding) {
                     MediafiedItemManager.setBoundStorage(caster, null)
@@ -64,6 +62,7 @@ class OpBindStorage(private val isTemporaryBinding: Boolean) : SpellAction {
                 return image.copy(userData = userData)
             }
 
+            val caster = env.caster ?: return null
             MediafiedItemManager.setBoundStorage(caster, storage.uuid)
             return null
         }
