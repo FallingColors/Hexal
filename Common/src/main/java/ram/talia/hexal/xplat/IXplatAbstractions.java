@@ -60,7 +60,7 @@ public interface IXplatAbstractions {
 
     // Things that used to be caps
 
-    boolean isInteractingAllowed(Level level, BlockPos pos, Direction direction, InteractionHand hand, Player player);
+    boolean isInteractingAllowed(ServerLevel level, BlockPos pos, Direction direction, InteractionHand hand, @Nullable Player player);
 
     WispCastingManager getWispCastingManager(ServerPlayer caster);
 
