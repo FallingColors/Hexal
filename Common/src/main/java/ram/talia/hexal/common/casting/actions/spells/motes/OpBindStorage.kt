@@ -41,14 +41,14 @@ class OpBindStorage(private val isTemporaryBinding: Boolean) : SpellAction {
 
         override fun cast(env: CastingEnvironment, image: CastingImage): CastingImage? {
             if (pos == null) {
-                if (!isTemporaryBinding) {
-                    val caster = env.caster ?: return null
-                    MediafiedItemManager.setBoundStorage(caster, null)
-                    return null
-                } else {
+                if (isTemporaryBinding) {
                     val userData = image.userData.copy()
                     userData.remove(MoteIota.TAG_TEMP_STORAGE)
                     return image.copy(userData = userData)
+                } else {
+                    val caster = env.caster ?: return null
+                    MediafiedItemManager.setBoundStorage(caster, null)
+                    return null
                 }
             }
 
@@ -61,11 +61,11 @@ class OpBindStorage(private val isTemporaryBinding: Boolean) : SpellAction {
                 val userData = image.userData.copy()
                 userData.putUUID(MoteIota.TAG_TEMP_STORAGE, storage.uuid)
                 return image.copy(userData = userData)
+            } else {
+                val caster = env.caster ?: return null
+                MediafiedItemManager.setBoundStorage(caster, storage.uuid)
+                return null
             }
-
-            val caster = env.caster ?: return null
-            MediafiedItemManager.setBoundStorage(caster, storage.uuid)
-            return null
         }
     }
 }
