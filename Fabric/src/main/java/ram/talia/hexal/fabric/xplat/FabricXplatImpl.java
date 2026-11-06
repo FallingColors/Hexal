@@ -129,8 +129,10 @@ public class FabricXplatImpl implements IXplatAbstractions {
     }
 
     @Override
-    public boolean isInteractingAllowed(Level level, BlockPos pos, Direction direction, InteractionHand hand, Player player) {
-         return UseBlockCallback.EVENT.invoker()
+    public boolean isInteractingAllowed(ServerLevel level, BlockPos pos, Direction direction, InteractionHand hand, @Nullable Player player) {
+        if (player == null)
+            player = FakePlayer.get(level, HEXCASTING);
+        return UseBlockCallback.EVENT.invoker()
                 .interact(player, level, hand, new BlockHitResult(Vec3.atCenterOf(pos), direction, pos, true)) != InteractionResult.FAIL; // I think this is right but I'm not sure
     }
 
