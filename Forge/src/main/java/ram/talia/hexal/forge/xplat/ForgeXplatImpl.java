@@ -101,8 +101,9 @@ public class ForgeXplatImpl implements IXplatAbstractions {
 	}
 
 	@Override
-	public boolean isInteractingAllowed(Level level, BlockPos pos, Direction direction, InteractionHand hand, Player player) {
-
+	public boolean isInteractingAllowed(ServerLevel level, BlockPos pos, Direction direction, InteractionHand hand, @Nullable Player player) {
+		if (player == null)
+			player = FakePlayerFactory.get(level, HEXCASTING);
 		return !MinecraftForge.EVENT_BUS.post(new PlayerInteractEvent.RightClickBlock(player, hand, pos, new BlockHitResult(Vec3.atCenterOf(pos), direction, pos, true)));
 	}
 
