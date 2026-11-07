@@ -3,6 +3,7 @@ package ram.talia.hexal.common.entities
 import at.petrak.hexcasting.api.casting.eval.env.PlayerBasedCastEnv
 import at.petrak.hexcasting.api.casting.iota.EntityIota
 import at.petrak.hexcasting.api.casting.iota.Vec3Iota
+import at.petrak.hexcasting.common.lib.HexAttributes
 import net.minecraft.world.entity.Entity
 import net.minecraft.world.entity.EntityType
 import net.minecraft.world.entity.player.Player
@@ -42,7 +43,10 @@ open class ProjectileWisp : BaseCastingWisp {
 	}
 
 	// Seon wisps have the same max range as the caster.
-	override fun maxSqrCastingDistance() = if (seon) { PlayerBasedCastEnv.AMBIT_RADIUS * PlayerBasedCastEnv.AMBIT_RADIUS } else { CASTING_RADIUS * CASTING_RADIUS }
+	override fun maxSqrCastingDistance() = if (seon) {
+        caster?.getAttributeValue(HexAttributes.AMBIT_RADIUS) ?:
+		(PlayerBasedCastEnv.DEFAULT_AMBIT_RADIUS * PlayerBasedCastEnv.DEFAULT_AMBIT_RADIUS)
+	} else { CASTING_RADIUS * CASTING_RADIUS }
 
 	fun getHitResult(start: Vec3, end: Vec3): BlockHitResult = level().clip(ClipContext(start, end, ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, this))
 

@@ -43,7 +43,7 @@ class PlayerLinkstore(val player: ServerPlayer) : ILinkable {
 	}
 	//endregion
 
-	override fun maxSqrLinkRange() = PlayerBasedCastEnv.AMBIT_RADIUS * PlayerBasedCastEnv.AMBIT_RADIUS
+	override fun maxSqrLinkRange() = PlayerBasedCastEnv.DEFAULT_AMBIT_RADIUS * PlayerBasedCastEnv.DEFAULT_AMBIT_RADIUS
 
 	override fun getLinkableType(): LinkableRegistry.LinkableType<PlayerLinkstore, *> = LinkableTypes.PLAYER_LINKSTORE_TYPE
 

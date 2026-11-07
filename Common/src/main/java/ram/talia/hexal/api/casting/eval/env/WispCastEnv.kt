@@ -8,6 +8,7 @@ import at.petrak.hexcasting.api.casting.eval.MishapEnvironment
 import at.petrak.hexcasting.api.casting.eval.env.PlayerBasedCastEnv
 import at.petrak.hexcasting.api.casting.eval.sideeffects.OperatorSideEffect
 import at.petrak.hexcasting.api.pigment.FrozenPigment
+import at.petrak.hexcasting.common.lib.HexAttributes
 import net.minecraft.core.BlockPos
 import net.minecraft.network.chat.Component
 import net.minecraft.server.level.ServerLevel
@@ -19,6 +20,7 @@ import net.minecraft.world.level.GameType
 import net.minecraft.world.phys.Vec3
 import ram.talia.hexal.common.entities.BaseCastingWisp
 import java.util.function.Predicate
+
 
 class WispCastEnv(val wisp: BaseCastingWisp, level: ServerLevel) : CastingEnvironment(level) {
     override fun getCastingEntity(): LivingEntity? = wisp.caster
@@ -53,7 +55,8 @@ class WispCastEnv(val wisp: BaseCastingWisp, level: ServerLevel) : CastingEnviro
         val caster = castingEntity as? ServerPlayer
         if (caster != null) {
             val sentinel = HexAPI.instance().getSentinel(caster)
-            if (sentinel != null && sentinel.extendsRange() && caster.level().dimension() === sentinel.dimension() && vec.distanceToSqr(sentinel.position()) <= PlayerBasedCastEnv.SENTINEL_RADIUS * PlayerBasedCastEnv.SENTINEL_RADIUS) {
+            val sentinelRadius = caster.getAttributeValue(HexAttributes.SENTINEL_RADIUS)
+            if (sentinel != null && sentinel.extendsRange() && caster.level().dimension() === sentinel.dimension() && vec.distanceToSqr(sentinel.position()) <= sentinelRadius * sentinelRadius + 0.00000000001) {
                 return true
             }
         }

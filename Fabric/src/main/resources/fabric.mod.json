@@ -51,13 +51,13 @@
     "java": ">=17",
     "fabricloader": ">=0.16",
     "fabric": ">=0.84",
-    "fabric-language-kotlin": ">=1.10.18+kotlin.1.9.22",
+    "fabric-language-kotlin": ">=1.13.7+kotlin.2.2.21",
     "cardinal-components": "~5.2.1",
     "patchouli": ">=1.20.1-80",
     "cloth-config": "11.1.x",
     "paucal": ">=0.6.0-pre-118",
-    "hexcasting": ">=0.11.1-6",
-    "moreiotas": ">=0.1.1",
+    "hexcasting": ">=0.11.4",
+    "moreiotas": ">=0.1.2",
     "geckolib": ">=4.2.1"
   },
   "suggests": {

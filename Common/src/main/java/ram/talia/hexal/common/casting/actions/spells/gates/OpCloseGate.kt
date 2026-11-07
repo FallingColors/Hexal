@@ -9,6 +9,7 @@ import at.petrak.hexcasting.api.casting.eval.env.PlayerBasedCastEnv
 import at.petrak.hexcasting.api.casting.getVec3
 import at.petrak.hexcasting.api.casting.iota.Iota
 import at.petrak.hexcasting.api.casting.mishaps.MishapBadLocation
+import at.petrak.hexcasting.common.lib.HexAttributes
 import net.minecraft.server.level.ServerPlayer
 import net.minecraft.world.entity.Entity
 import net.minecraft.world.item.enchantment.EnchantmentHelper
@@ -91,7 +92,9 @@ object OpCloseGate : VarargSpellAction {
 
             teleportRespectSticky(teleportee, allTeleportees, delta)
 
-            if (teleportee is ServerPlayer && teleportee == env.caster && distance < PlayerBasedCastEnv.AMBIT_RADIUS && dropItems) {
+            val ambitRadius = env.caster?.getAttributeValue(HexAttributes.AMBIT_RADIUS) ?: PlayerBasedCastEnv.DEFAULT_AMBIT_RADIUS
+
+            if (teleportee is ServerPlayer && teleportee == env.caster && distance < ambitRadius && dropItems) {
                 // Drop items conditionally, based on distance teleported.
                 // MOST IMPORTANT: Never drop main hand item, since if it's a trinket, it will get duplicated later.
 

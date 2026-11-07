@@ -5,6 +5,7 @@ import at.petrak.hexcasting.api.casting.iota.EntityIota
 import at.petrak.hexcasting.api.casting.iota.Iota
 import at.petrak.hexcasting.api.utils.hasByte
 import at.petrak.hexcasting.api.utils.hasFloat
+import at.petrak.hexcasting.common.lib.HexAttributes
 import gay.`object`.hexdebug.core.api.HexDebugCoreAPI
 import net.minecraft.nbt.CompoundTag
 import net.minecraft.nbt.ListTag
@@ -189,7 +190,10 @@ class TickingWisp : BaseCastingWisp {
 	}
 
 	// Seon wisps have the same max range as the caster.
-	override fun maxSqrCastingDistance() = if (seon) { PlayerBasedCastEnv.AMBIT_RADIUS * PlayerBasedCastEnv.AMBIT_RADIUS } else { CASTING_RADIUS * CASTING_RADIUS }
+	override fun maxSqrCastingDistance() = if (seon) {
+		caster?.getAttributeValue(HexAttributes.AMBIT_RADIUS) ?:
+		(PlayerBasedCastEnv.DEFAULT_AMBIT_RADIUS * PlayerBasedCastEnv.DEFAULT_AMBIT_RADIUS)
+	} else { CASTING_RADIUS * CASTING_RADIUS }
 
 	override fun canScheduleCast(): Boolean {
 		return super.canScheduleCast() && !isDebuggingAndPaused

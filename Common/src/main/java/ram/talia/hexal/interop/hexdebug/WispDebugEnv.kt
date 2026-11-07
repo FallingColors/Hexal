@@ -3,11 +3,11 @@ package ram.talia.hexal.interop.hexdebug
 import at.petrak.hexcasting.api.HexAPI
 import at.petrak.hexcasting.api.casting.eval.CastingEnvironment
 import at.petrak.hexcasting.api.casting.eval.ResolvedPatternType
-import at.petrak.hexcasting.api.casting.eval.env.PlayerBasedCastEnv.AMBIT_RADIUS
 import at.petrak.hexcasting.api.casting.eval.vm.CastingImage
 import at.petrak.hexcasting.api.casting.iota.EntityIota
 import at.petrak.hexcasting.api.casting.iota.Iota
 import at.petrak.hexcasting.api.utils.asTranslatedComponent
+import at.petrak.hexcasting.common.lib.HexAttributes
 import gay.`object`.hexdebug.core.api.HexDebugCoreAPI
 import gay.`object`.hexdebug.core.api.debugging.StopReason
 import gay.`object`.hexdebug.core.api.debugging.env.DebugEnvironment
@@ -54,7 +54,8 @@ class WispDebugEnv(
     }
 
     override fun isCasterInRange(): Boolean {
-        return wisp?.let { caster.distanceToSqr(it) <= AMBIT_RADIUS * AMBIT_RADIUS } ?: false
+        val ambitRadius = caster.getAttributeValue(HexAttributes.AMBIT_RADIUS)
+        return wisp?.let { caster.distanceToSqr(it) <= ambitRadius * ambitRadius } ?: false
     }
 
     override fun getName(): Component {
