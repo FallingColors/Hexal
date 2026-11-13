@@ -6,6 +6,7 @@ import net.minecraft.world.level.block.Block
 import net.minecraft.world.level.storage.loot.LootTable
 import ram.talia.hexal.api.HexalAPI
 import ram.talia.hexal.common.lib.HexalBlocks
+import java.util.function.BiConsumer
 
 class HexalLootTables : PaucalLootTableSubProvider(HexalAPI.MOD_ID) {
     override fun makeLootTables(blockTables: MutableMap<Block, LootTable.Builder>, lootTables: MutableMap<ResourceLocation, LootTable.Builder>) {

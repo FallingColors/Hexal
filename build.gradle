@@ -16,7 +16,14 @@ plugins {
     id "org.jetbrains.kotlin.jvm"
     id 'idea'
     id 'hexal.publish'
-    id 'fabric-loom' version "$loomVersion" apply false
+    //id 'fabric-loom' version "$loomVersion" apply false
+
+    id 'dev.architectury.loom' version '1.9+' apply false
+    id 'architectury-plugin' version '3.4-SNAPSHOT'
+}
+
+architectury {
+    minecraft = project.minecraftVersion
 }
 
 String getArtifactID(String platform) {
@@ -68,6 +75,8 @@ repositories {
 }
 
 subprojects {
+    apply plugin: 'dev.architectury.loom'
+    apply plugin: 'architectury-plugin'
     apply plugin: 'java'
     apply plugin: 'kotlin'
     apply plugin: 'maven-publish'
@@ -104,6 +113,15 @@ subprojects {
         maven { url "https://maven.hexxy.media" }
     }
 
+    loom {
+        silentMojangMappingsLicense()
+    }
+
+    dependencies {
+        minecraft "net.minecraft:minecraft:$rootProject.minecraftVersion"
+        mappings loom.officialMojangMappings()
+    }
+
 
     tasks.withType(JavaCompile).configureEach {
         it.options.encoding = 'UTF-8'
@@ -118,6 +136,17 @@ subprojects {
     }
 
     sourceSets.main.kotlin.srcDirs += 'src/main/java'
+
+    if (project.path != ':Common') {
+        loom {
+            mods {
+                main { // to match the default mod generated for Forge
+                    sourceSet project.sourceSets.main
+                    sourceSet project(':Common').sourceSets.main
+                }
+            }
+        }
+    }
 
     java.toolchain {
         languageVersion = JavaLanguageVersion.of(17)

@@ -1,138 +1,150 @@
-buildscript {
-    repositories {
-        maven { url = 'https://maven.minecraftforge.net' }
-        maven {
-            url = 'https://repo.spongepowered.org/repository/maven-public/'
-            content { includeGroup "org.spongepowered" }
-        }
-        mavenCentral()
-    }
-    dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '6.0.+', changing: true
-        classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
-    }
-}
+//buildscript {
+//    repositories {
+//        maven { url = 'https://maven.minecraftforge.net' }
+//        maven {
+//            url = 'https://repo.spongepowered.org/repository/maven-public/'
+//            content { includeGroup "org.spongepowered" }
+//        }
+//        mavenCentral()
+//    }
+//    dependencies {
+//        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '6.0.+', changing: true
+//        classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
+//    }
+//}
 
 plugins {
     id 'hexal.platform'
+    id 'dev.architectury.loom'
 }
 
-apply plugin: 'net.minecraftforge.gradle'
-apply plugin: 'org.spongepowered.mixin'
+//apply plugin: 'org.spongepowered.mixin'
 
 archivesBaseName = getArtifactID("forge")
 
-jarJar.enable()
+architectury {
+    platformSetupLoomIde()
+    forge()
+}
 
-minecraft {
-    mappings channel: 'official', version: minecraftVersion
-    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
-
-    if (project.hasProperty('forge_ats_enabled') && project.findProperty('forge_ats_enabled').toBoolean()) {
-        // This location is hardcoded in Forge and can not be changed.
-        // https://github.com/MinecraftForge/MinecraftForge/blob/be1698bb1554f9c8fa2f58e32b9ab70bc4385e60/fmlloader/src/main/java/net/minecraftforge/fml/loading/moddiscovery/ModFile.java#L123
-        accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
-        project.logger.debug('Forge Access Transformers are enabled for this project.')
-    }
-
-    runs {
-        client {
-            workingDirectory project.file('run')
-            ideaModule "${rootProject.name}.${project.name}.main"
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
-            mods {
-                create(modID) {
-                    source sourceSets.main
-                    source project(":Common").sourceSets.main
-                }
-            }
-        }
-
-        server {
-            workingDirectory project.file('run')
-            ideaModule "${rootProject.name}.${project.name}.main"
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
-            mods {
-                create(modID) {
-                    source sourceSets.main
-                    source project(":Common").sourceSets.main
-                }
-            }
-        }
-
-        // This run config launches GameTestServer and runs all registered gametests, then exits.
-        // By default, the server will crash when no gametests are provided.
-        // The gametest system is also enabled by default for other run configs under the /test command.
-        gameTestServer {
-            workingDirectory project.file('run')
-            ideaModule "${rootProject.name}.${project.name}.main"
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
-
-            // Recommended logging data for a userdev environment
-            // The markers can be added/remove as needed separated by commas.
-            // "SCAN": For mods scan.
-            // "REGISTRIES": For firing of registry events.
-            // "REGISTRYDUMP": For getting the contents of all registries.
-            property 'forge.logging.markers', 'REGISTRIES'
-
-            // Recommended logging level for the console
-            // You can set various levels here.
-            // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
-            property 'forge.logging.console.level', 'debug'
-
-            // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
-            property 'forge.enabledGameTestNamespaces', 'hexal'
-
-            mods {
-                create(modID) {
-                    source sourceSets.main
-                    source sourceSets.test
-                    source project(":Common").sourceSets.test
-                }
-            }
-        }
-
-        // We have to have a dummy data run to be parented from
-        data {}
-
-        xplatDatagen {
-            parent minecraft.runs.data
-
-            workingDirectory project.file('run')
-            ideaModule "${rootProject.name}.${project.name}.main"
-            args '--mod', modID, '--all', '--output', file('../Common/src/generated/resources/'), '--existing', file('../Common/src/main/resources/')
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
-            property 'hexal.xplat_datagen', 'true'
-            mods {
-                create(modID) {
-                    source sourceSets.main
-                    source project(":Common").sourceSets.main
-                }
-            }
-        }
-
-        forgeDatagen {
-            parent minecraft.runs.data
-
-            workingDirectory project.file('run')
-            ideaModule "${rootProject.name}.${project.name}.main"
-            args '--mod', modID, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
-            property 'hexal.forge_datagen', 'true'
-            mods {
-                create(modID) {
-                    source sourceSets.main
-                    source project(":Common").sourceSets.main
-                }
-            }
-        }
+loom {
+    accessWidenerPath = project(":Common").loom.accessWidenerPath
+    forge {
+        mixinConfig "hexal_forge.mixins.json"
+        convertAccessWideners = true
+        extraAccessWideners.add(loom.accessWidenerPath.get().asFile.name)
     }
 }
+
+//minecraft {
+//    mappings channel: 'official', version: minecraftVersion
+//    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+//
+//    if (project.hasProperty('forge_ats_enabled') && project.findProperty('forge_ats_enabled').toBoolean()) {
+//        // This location is hardcoded in Forge and can not be changed.
+//        // https://github.com/MinecraftForge/MinecraftForge/blob/be1698bb1554f9c8fa2f58e32b9ab70bc4385e60/fmlloader/src/main/java/net/minecraftforge/fml/loading/moddiscovery/ModFile.java#L123
+//        accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+//        project.logger.debug('Forge Access Transformers are enabled for this project.')
+//    }
+//
+//    runs {
+//        client {
+//            workingDirectory project.file('run')
+//            ideaModule "${rootProject.name}.${project.name}.main"
+//            property 'mixin.env.remapRefMap', 'true'
+//            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+//            mods {
+//                create(modID) {
+//                    source sourceSets.main
+//                    source project(":Common").sourceSets.main
+//                }
+//            }
+//        }
+//
+//        server {
+//            workingDirectory project.file('run')
+//            ideaModule "${rootProject.name}.${project.name}.main"
+//            property 'mixin.env.remapRefMap', 'true'
+//            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+//            mods {
+//                create(modID) {
+//                    source sourceSets.main
+//                    source project(":Common").sourceSets.main
+//                }
+//            }
+//        }
+//
+//        // This run config launches GameTestServer and runs all registered gametests, then exits.
+//        // By default, the server will crash when no gametests are provided.
+//        // The gametest system is also enabled by default for other run configs under the /test command.
+//        gameTestServer {
+//            workingDirectory project.file('run')
+//            ideaModule "${rootProject.name}.${project.name}.main"
+//            property 'mixin.env.remapRefMap', 'true'
+//            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+//
+//            // Recommended logging data for a userdev environment
+//            // The markers can be added/remove as needed separated by commas.
+//            // "SCAN": For mods scan.
+//            // "REGISTRIES": For firing of registry events.
+//            // "REGISTRYDUMP": For getting the contents of all registries.
+//            property 'forge.logging.markers', 'REGISTRIES'
+//
+//            // Recommended logging level for the console
+//            // You can set various levels here.
+//            // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
+//            property 'forge.logging.console.level', 'debug'
+//
+//            // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
+//            property 'forge.enabledGameTestNamespaces', 'hexal'
+//
+//            mods {
+//                create(modID) {
+//                    source sourceSets.main
+//                    source sourceSets.test
+//                    source project(":Common").sourceSets.test
+//                }
+//            }
+//        }
+//
+//        // We have to have a dummy data run to be parented from
+//        data {}
+//
+//        xplatDatagen {
+//            parent minecraft.runs.data
+//
+//            workingDirectory project.file('run')
+//            ideaModule "${rootProject.name}.${project.name}.main"
+//            args '--mod', modID, '--all', '--output', file('../Common/src/generated/resources/'), '--existing', file('../Common/src/main/resources/')
+//            property 'mixin.env.remapRefMap', 'true'
+//            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+//            property 'hexal.xplat_datagen', 'true'
+//            mods {
+//                create(modID) {
+//                    source sourceSets.main
+//                    source project(":Common").sourceSets.main
+//                }
+//            }
+//        }
+//
+//        forgeDatagen {
+//            parent minecraft.runs.data
+//
+//            workingDirectory project.file('run')
+//            ideaModule "${rootProject.name}.${project.name}.main"
+//            args '--mod', modID, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+//            property 'mixin.env.remapRefMap', 'true'
+//            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+//            property 'hexal.forge_datagen', 'true'
+//            mods {
+//                create(modID) {
+//                    source sourceSets.main
+//                    source project(":Common").sourceSets.main
+//                }
+//            }
+//        }
+//    }
+//}
 
 repositories {
     mavenCentral()
@@ -163,71 +175,66 @@ dependencies {
     // Specify the version of Minecraft to use. If this is any group other than 'net.minecraft', it is assumed
     // that the dep is a ForgeGradle 'patcher' dependency, and its patches will be applied.
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
-    minecraft "net.minecraftforge:forge:$minecraftVersion-$forgeVersion"
+    forge "net.minecraftforge:forge:$minecraftVersion-$forgeVersion"
+
     compileOnly project(":Common")
 
     implementation "thedarkcolour:kotlinforforge:$kotlinForForgeVersion"
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
-    compileOnly fg.deobf("at.petra-k.paucal:paucal-forge-$minecraftVersion:$paucalVersion")
-    runtimeOnly fg.deobf("at.petra-k.paucal:paucal-forge-$minecraftVersion:$paucalVersion")
-    compileOnly fg.deobf("at.petra-k.hexcasting:hexcasting-forge-$minecraftVersion:$hexcastingVersion")
-    runtimeOnly fg.deobf("at.petra-k.hexcasting:hexcasting-forge-$minecraftVersion:$hexcastingVersion")
-    compileOnly(fg.deobf("ram.talia.moreiotas:moreiotas-forge-$minecraftVersion:$moreIotasVersion") { transitive = false })
-    runtimeOnly(fg.deobf("ram.talia.moreiotas:moreiotas-forge-$minecraftVersion:$moreIotasVersion") { transitive = false })
+    modCompileOnly "at.petra-k.paucal:paucal-forge-$minecraftVersion:$paucalVersion"
+    modRuntimeOnly "at.petra-k.paucal:paucal-forge-$minecraftVersion:$paucalVersion"
+    modImplementation "at.petra-k.hexcasting:hexcasting-forge-$minecraftVersion:$hexcastingVersion"
+    modImplementation("ram.talia.moreiotas:moreiotas-forge-$minecraftVersion:$moreIotasVersion") { transitive = false }
+    modImplementation "vazkii.patchouli:Patchouli:$minecraftVersion-$patchouliVersion-FORGE-SNAPSHOT"
+    modRuntimeOnly "com.samsthenerd.inline:inline-forge:$minecraftVersion-$inlineVersion"
+    modImplementation "me.shedaniel.cloth:cloth-config-forge:$clothConfigVersion"
+    modCompileOnly ("top.theillusivec4.caelus:caelus-forge:$caelusVersion+$minecraftVersion:api") { transitive = false }
+    modRuntimeOnly ("top.theillusivec4.caelus:caelus-forge:$caelusVersion+$minecraftVersion") { transitive = false }
 
-    compileOnly fg.deobf("vazkii.patchouli:Patchouli:$minecraftVersion-$patchouliVersion-FORGE-SNAPSHOT")
-    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:$minecraftVersion-$patchouliVersion-FORGE-SNAPSHOT")
-
-    compileOnly fg.deobf("com.samsthenerd.inline:inline-forge:$minecraftVersion-$inlineVersion")
-    runtimeOnly fg.deobf("com.samsthenerd.inline:inline-forge:$minecraftVersion-$inlineVersion")
-    compileOnly fg.deobf("me.shedaniel.cloth:cloth-config-forge:$clothConfigVersion")
-    runtimeOnly fg.deobf("me.shedaniel.cloth:cloth-config-forge:$clothConfigVersion")
-
-    implementation fg.deobf("top.theillusivec4.caelus:caelus-forge:$caelusVersion")
-
-    implementation fg.deobf("software.bernie.geckolib:geckolib-forge-$minecraftVersion:$geckolibVersion")
-    implementation fg.deobf("com.eliotlash.mclib:mclib:20") // dependency of geckolib that isn't being transitivelyied properly
+    modImplementation "software.bernie.geckolib:geckolib-forge-$minecraftVersion:$geckolibVersion"
+    //implementation "com.eliotlash.mclib:mclib:20" // dependency of geckolib that isn't being transitivelyied properly
 
     // Optional interop
 
-    compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:$curiosVersion+$minecraftVersion:api")
-    runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:$curiosVersion+$minecraftVersion")
+    compileOnly "top.theillusivec4.curios:curios-forge:$curiosVersion+$minecraftVersion:api"
+    runtimeOnly "top.theillusivec4.curios:curios-forge:$curiosVersion+$minecraftVersion"
 
-    implementation fg.deobf("gay.object.hexdebug:hexdebug-core-forge:$hexdebugVersion+$minecraftVersion")
-    jarJar("gay.object.hexdebug:hexdebug-core-forge:$hexdebugVersion+$minecraftVersion") {
-        transitive = false // otherwise it tries to JiJ Hex Casting, for some reason
-        jarJar.ranged(it, "[$hexdebugVersion,)")
-    }
-    runtimeOnly fg.deobf("gay.object.hexdebug:hexdebug-forge:$hexdebugVersion+$minecraftVersion")
-    runtimeOnly fg.deobf("gay.object.ioticblocks:ioticblocks-forge:$ioticBlocksVersion")
-    runtimeOnly fg.deobf("dev.architectury:architectury-forge:$architecturyVersion")
+    modImplementation "gay.object.hexdebug:hexdebug-core-forge:$hexdebugVersion+$minecraftVersion"
+    include "gay.object.hexdebug:hexdebug-core-forge:$hexdebugVersion+$minecraftVersion"
+//    jarJar("gay.object.hexdebug:hexdebug-core-forge:$hexdebugVersion+$minecraftVersion") {
+//        transitive = false // otherwise it tries to JiJ Hex Casting, for some reason
+//        jarJar.ranged(it, "[$hexdebugVersion,)")
+//    }
+    modRuntimeOnly "gay.object.hexdebug:hexdebug-forge:$hexdebugVersion+$minecraftVersion"
+    modRuntimeOnly "gay.object.ioticblocks:ioticblocks-forge:$ioticBlocksVersion"
+    modRuntimeOnly "dev.architectury:architectury-forge:$architecturyVersion"
 
     // Testing dependencies:
     testCompileOnly project(":Common")
 
     testAnnotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
-    testCompileOnly fg.deobf("at.petra-k.paucal:paucal-forge-$minecraftVersion:$paucalVersion")
-    testRuntimeOnly fg.deobf("at.petra-k.paucal:paucal-forge-$minecraftVersion:$paucalVersion")
-    testCompileOnly fg.deobf("at.petra-k.hexcasting:hexcasting-forge-$minecraftVersion:$hexcastingVersion")
-    testRuntimeOnly fg.deobf("at.petra-k.hexcasting:hexcasting-forge-$minecraftVersion:$hexcastingVersion")
-    testCompileOnly(fg.deobf("ram.talia.moreiotas:moreiotas-forge-$minecraftVersion:$moreIotasVersion") { transitive = false })
-    testRuntimeOnly(fg.deobf("ram.talia.moreiotas:moreiotas-forge-$minecraftVersion:$moreIotasVersion") { transitive = false })
-    testCompileOnly fg.deobf("vazkii.patchouli:Patchouli:$minecraftVersion-$patchouliVersion-FORGE-SNAPSHOT")
-    testRuntimeOnly fg.deobf("vazkii.patchouli:Patchouli:$minecraftVersion-$patchouliVersion-FORGE-SNAPSHOT")
+    testCompileOnly "at.petra-k.paucal:paucal-forge-$minecraftVersion:$paucalVersion"
+    testRuntimeOnly "at.petra-k.paucal:paucal-forge-$minecraftVersion:$paucalVersion"
+    testCompileOnly "at.petra-k.hexcasting:hexcasting-forge-$minecraftVersion:$hexcastingVersion"
+    testRuntimeOnly "at.petra-k.hexcasting:hexcasting-forge-$minecraftVersion:$hexcastingVersion"
+    testCompileOnly("ram.talia.moreiotas:moreiotas-forge-$minecraftVersion:$moreIotasVersion") { transitive = false }
+    testRuntimeOnly("ram.talia.moreiotas:moreiotas-forge-$minecraftVersion:$moreIotasVersion") { transitive = false }
+    testCompileOnly "vazkii.patchouli:Patchouli:$minecraftVersion-$patchouliVersion-FORGE-SNAPSHOT"
+    testRuntimeOnly "vazkii.patchouli:Patchouli:$minecraftVersion-$patchouliVersion-FORGE-SNAPSHOT"
 
     testCompileOnly "org.junit.jupiter:junit-jupiter-api:$junitVersion"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
 }
 
-mixin {
-    add sourceSets.main, "hexal.mixins.refmap.json"
-    add sourceSets.test, "hexal.test.mixins.refmap.json"
-    config "hexalplat.mixins.json"
-    config "hexal_forge.mixins.json"
-}
+//mixin {
+//    add sourceSets.main, "hexal.mixins.refmap.json"
+//    add sourceSets.test, "hexal.test.mixins.refmap.json"
+//    config "hexalplat.mixins.json"
+//    config "hexal_forge.mixins.json"
+//}
 
 tasks.withType(JavaCompile) {
     source(project(":Common").sourceSets.main.allSource)
@@ -257,16 +264,16 @@ task printSourceSetInformation(){
     }
 }
 
-tasks.jarJar {
-    archiveClassifier = ""
-}
+//tasks.jarJar {
+//    archiveClassifier = ""
+//}
 
 jar {
     archiveClassifier = "slim"
 }
 
 tasks.register("ciArtifacts", Copy) {
-    from tasks.jarJar
+    from tasks.remapJar
     into rootProject.file("build/ciArtifacts")
 }
 
@@ -313,6 +320,14 @@ processTestResources {
     }
 }
 
+tasks.named('processResources') {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+tasks.named('sourcesJar') {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
 hexalModDependencies {
     requires("kotlin-for-forge")
     requires("paucal")
@@ -323,24 +338,24 @@ hexalModDependencies {
 }
 
 publishMods {
-    file = tasks.jarJar.archiveFile
+    file = remapJar.archiveFile
 }
 
-jar.finalizedBy('reobfJar')
+jar.finalizedBy('remapJar')
 setupJar(this)
 
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            artifact tasks.jarJar
-            // ForgeGradle exports (broken) remapped dependencies, so just remove all of them
-            // https://github.com/VazkiiMods/Botania/blob/87ef25381381f06a1f0f106b896b420956d52bca/Forge/build.gradle#L179
-            pom.withXml {
-                def node = asNode()
-                if (node.dependencies.size() > 0) {
-                    node.remove(node.dependencies)
-                }
-            }
-        }
-    }
-}
+//publishing {
+//    publications {
+//        mavenJava(MavenPublication) {
+//            artifact tasks.jarJar
+//            // ForgeGradle exports (broken) remapped dependencies, so just remove all of them
+//            // https://github.com/VazkiiMods/Botania/blob/87ef25381381f06a1f0f106b896b420956d52bca/Forge/build.gradle#L179
+//            pom.withXml {
+//                def node = asNode()
+//                if (node.dependencies.size() > 0) {
+//                    node.remove(node.dependencies)
+//                }
+//            }
+//        }
+//    }
+//}
