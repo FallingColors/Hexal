@@ -1,24 +1,7 @@
-//buildscript {
-//    repositories {
-//        maven { url = 'https://maven.minecraftforge.net' }
-//        maven {
-//            url = 'https://repo.spongepowered.org/repository/maven-public/'
-//            content { includeGroup "org.spongepowered" }
-//        }
-//        mavenCentral()
-//    }
-//    dependencies {
-//        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '6.0.+', changing: true
-//        classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
-//    }
-//}
-
 plugins {
     id 'hexal.platform'
     id 'dev.architectury.loom'
 }
-
-//apply plugin: 'org.spongepowered.mixin'
 
 archivesBaseName = getArtifactID("forge")
 
@@ -172,9 +155,6 @@ repositories {
 }
 
 dependencies {
-    // Specify the version of Minecraft to use. If this is any group other than 'net.minecraft', it is assumed
-    // that the dep is a ForgeGradle 'patcher' dependency, and its patches will be applied.
-    // The userdev artifact is a special name and will get all sorts of transformations applied to it.
     forge "net.minecraftforge:forge:$minecraftVersion-$forgeVersion"
 
     compileOnly project(":Common")
@@ -194,7 +174,6 @@ dependencies {
     modRuntimeOnly ("top.theillusivec4.caelus:caelus-forge:$caelusVersion+$minecraftVersion") { transitive = false }
 
     modImplementation "software.bernie.geckolib:geckolib-forge-$minecraftVersion:$geckolibVersion"
-    //implementation "com.eliotlash.mclib:mclib:20" // dependency of geckolib that isn't being transitivelyied properly
 
     // Optional interop
 
@@ -203,12 +182,10 @@ dependencies {
 
     modImplementation "gay.object.hexdebug:hexdebug-core-forge:$hexdebugVersion+$minecraftVersion"
     include "gay.object.hexdebug:hexdebug-core-forge:$hexdebugVersion+$minecraftVersion"
-//    jarJar("gay.object.hexdebug:hexdebug-core-forge:$hexdebugVersion+$minecraftVersion") {
-//        transitive = false // otherwise it tries to JiJ Hex Casting, for some reason
-//        jarJar.ranged(it, "[$hexdebugVersion,)")
-//    }
+
     modRuntimeOnly "gay.object.hexdebug:hexdebug-forge:$hexdebugVersion+$minecraftVersion"
     modRuntimeOnly "gay.object.ioticblocks:ioticblocks-forge:$ioticBlocksVersion"
+
     modRuntimeOnly "dev.architectury:architectury-forge:$architecturyVersion"
 
     // Testing dependencies:
@@ -228,13 +205,6 @@ dependencies {
     testCompileOnly "org.junit.jupiter:junit-jupiter-api:$junitVersion"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
 }
-
-//mixin {
-//    add sourceSets.main, "hexal.mixins.refmap.json"
-//    add sourceSets.test, "hexal.test.mixins.refmap.json"
-//    config "hexalplat.mixins.json"
-//    config "hexal_forge.mixins.json"
-//}
 
 tasks.withType(JavaCompile) {
     source(project(":Common").sourceSets.main.allSource)
@@ -263,10 +233,6 @@ task printSourceSetInformation(){
         }
     }
 }
-
-//tasks.jarJar {
-//    archiveClassifier = ""
-//}
 
 jar {
     archiveClassifier = "slim"
