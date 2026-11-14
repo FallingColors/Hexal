@@ -30,6 +30,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Phase Block now ensures that the caster has permission to break the target block.
 - Trade now mishaps if the list contains more than 2 motes, and makes it clear that the list should match a single trade offer.
 - Bind Storage - Temp can now be used in environments that lack a casting player, by c-Caelum in [#238](https://github.com/FallingColors/Hexal/pull/238).
+- The mishap when providing something non-placeable to Place Block II now specifies all valid input types.
 
 ### Fixed
 
@@ -47,6 +48,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Fixed an error when passing null or an empty mote to Use Item On.
 - Fixed a variety of broken lang keys in the config menu.
 - Fixed Trade allowing trades even when not enough input items were present.
+- Fixed Place Block II failing silently if the caster doesn't have any items matching the specified type.
 
 ## `0.3.1` - 2025-10-30
 

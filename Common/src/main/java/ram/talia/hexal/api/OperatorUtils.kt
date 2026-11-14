@@ -246,7 +246,7 @@ fun List<Iota>.getBlockTypeOrBlockItemStackOrBlockMote(idx: Int, argc: Int = 0):
         return x.itemStack?.let { if (it.item is BlockItem) Anyone.second(it) else null }
     if (x is MoteIota)
         return x.selfOrNull()?.let { if (it.item is BlockItem) Anyone.third(it) else null }
-    throw MishapInvalidIota.ofType(x, if (argc == 0) idx else argc - (idx + 1), "type.block")
+    throw MishapInvalidIota.of(x, if (argc == 0) idx else argc - (idx + 1), "placeable")
 }
 
 fun List<Iota>.getGate(idx: Int, argc: Int = 0): GateIota {
